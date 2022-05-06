@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <NameContextWrapper>
             <nav className="navbar">
-                <div class="navbar-brand">
+                <div className="navbar-brand">
                     <Link href="/"><a className='navbar-item'>Malaga Expat</a></Link>
                 </div>
                 <div className="navbar-menu">
