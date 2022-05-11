@@ -20,9 +20,6 @@ export default function OurServices() {
                                 <p className="subtitle is-size-4">
                                     Our services cover a broad range of matters, from assistance with paperwork, language and Spanish bureaucracy to relocation consultancy and advice, and are directed to all expats residing or planning to move to Malaga and the Costa del Sol.
                                 </p>
-                                <p>
-                                    Our most distinctive feature in all we do is a professional and structured approach with focus to details and high level of commitment to customer requirements. Below we list just some of the services we can provide in Malaga and the Costa del Sol, but please contact us with your requirements and we will be happy to customize our service proposal for you.
-                                </p>
                             </div>
                         </div>
                     </div>

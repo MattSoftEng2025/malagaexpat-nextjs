@@ -1,7 +1,18 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import API from '../utils/API';
 
-export default function Home() {
+export async function getStaticProps() {
+    const informationLinks = await API.getJson('/pages/information');
+    return {
+        props: {
+            informationLinks
+        },
+        revalidate: 10 * 60
+    }
+}
+
+export default function Home({ informationLinks }) {
 
     return (
         <>
@@ -9,7 +20,7 @@ export default function Home() {
                 <title>Malaga Expat proto</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <section className="hero" style={{ background: '#FFCC00' }}>
+            <section className="hero is-primary">
                 <div className="hero-body">
                     <div className="container">
                         <div className="columns">
@@ -31,6 +42,18 @@ export default function Home() {
                             <p>We at Malaga Expat Consulting are happy to assist in a friendly and professional manner with all the above and much more. Our services cover a full range from expat assistance to relocation consultancy and are directed to all expats residing or planning to move to Malaga and the Costa del Sol.</p>
                             <Link href="/our-services"><a className="button is-large">Our services</a></Link>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <section className="section">
+                <div className="container">
+                    <h3 className="has-text-centered is-size-1">Information</h3>
+                    <div className="columns is-multiline">
+                        {informationLinks.map(link => (
+                            <span key={link.permalink} className="column">
+                                <Link href={`/information/${link.permalink}`}><a className="button is-fullwidth is-primary is-size-4">{link.title}</a></Link>
+                            </span>
+                        ))}
                     </div>
                 </div>
             </section>
