@@ -1,18 +1,22 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Testimonials from '../components/home/Testimonials';
+import Testimonial from '../components/shared/Testimonial';
 import API from '../utils/API';
 
 export async function getStaticProps() {
     const informationLinks = await API.getJson('/pages/information');
+    const featuredTestimonials = await API.getJson('/testimonials/featured')
     return {
         props: {
-            informationLinks
+            informationLinks,
+            featuredTestimonials
         },
         revalidate: 10 * 60
     }
 }
 
-export default function Home({ informationLinks }) {
+export default function Home({ informationLinks, featuredTestimonials }) {
 
     return (
         <>
@@ -57,6 +61,7 @@ export default function Home({ informationLinks }) {
                     </div>
                 </div>
             </section>
+            <Testimonials testimonials={featuredTestimonials} />
         </>
     )
 }

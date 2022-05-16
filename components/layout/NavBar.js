@@ -10,6 +10,7 @@ export default function NavBar() {
                 <div className="navbar-start">
                     <Link href="/our-services"><a className='navbar-item'>Services</a></Link>
                     <Link href="/information"><a className='navbar-item'>Information</a></Link>
+                    <Link href="/testimonials"><a className='navbar-item'>Testimonials</a></Link>
                 </div>
             </div>
         </nav>

@@ -1,3 +1,46 @@
 $primary: #FFCC00;
 $secondary: #000000;
 @import "../node_modules/bulma/bulma.sass";
+
+// helpers
+
+// footer
+footer {
+    border-top: 1px solid #ccc;
+}
+
+// testimonials
+.testimonials {
+    @media (min-width:600px) {
+        column-count: 2;
+    }
+
+    @media (min-width:900px) {
+        column-count: 3;
+    }
+
+    @media (min-width:1400px) {
+        column-count: 4;
+    }
+}
+
+.testimonial {
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+
+    h4 {
+        color: $primary  !important;
+    }
+}
+
+.testimonial h4::after {
+    content: '';
+    border: 3px solid #ccc;
+    width: 2rem;
+    display: block;
+    position: relative;
+    margin: 1rem auto;
+}
