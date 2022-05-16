@@ -49,16 +49,21 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                     </div>
                 </div>
             </section>
-            <section className="section">
+            <section className="section has-background-primary">
+                <div className="container has-text-centered">
+                    <Link href="/contact">
+                        <a className="button is-black is-large">Contact Malaga Expat</a>
+                    </Link>
+                </div>
+            </section>
+            <section className="section has-background-info">
                 <div className="container">
-                    <h3 className="has-text-centered is-size-1">Information</h3>
-                    <div className="columns is-multiline">
-                        {informationLinks.map(link => (
-                            <span key={link.permalink} className="column">
-                                <Link href={`/information/${link.permalink}`}><a className="button is-fullwidth is-primary is-size-4">{link.title}</a></Link>
-                            </span>
-                        ))}
-                    </div>
+                    <h3 className="has-text-centered has-text-primary is-size-1 mb-5">Information</h3>
+                    {informationLinks.map(link => (
+                        <div key={link.permalink} className="block has-text-centered">
+                            <Link href={`/information/${link.permalink}`}><a className="button is-dark is-fullwidth is-size-4" style={{ height: '100%!important' }}>{link.title}</a></Link>
+                        </div>
+                    ))}
                 </div>
             </section>
             <Testimonials testimonials={featuredTestimonials} />

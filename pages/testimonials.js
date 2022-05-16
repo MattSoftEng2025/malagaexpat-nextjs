@@ -20,8 +20,9 @@ export default function TestimonialsPage({ testimonials }) {
             </Head>
             <main>
                 <div className="hero is-primary">
-                    <div className="hero-body">
-                        <h1 className="title has-text-centered">Testimonials</h1>
+                    <div className="hero-body has-text-centered">
+                        <h1 className="title">Testimonials</h1>
+                        <p className="subtitle">Hundreds of satisfied customers since Malaga Expat began in 2015</p>
                     </div>
                 </div>
                 <section className="section has-background-dark has-text-light">

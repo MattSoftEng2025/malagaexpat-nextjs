@@ -1,13 +1,24 @@
 $primary: #FFCC00;
 $secondary: #000000;
+$info: #808080;
 @import "../node_modules/bulma/bulma.sass";
 
 // helpers
 
+
 // footer
-footer {
-    border-top: 1px solid #ccc;
-}
+
+// home info links
+// .information-links {
+//     a {
+//         background: #363636;
+//         border-radius: 1rem;
+//         color: #fff;
+//         display: flex;
+//         align-content: center;
+//         padding: .5rem .5rem;
+//     }
+// }
 
 // testimonials
 .testimonials {
@@ -38,7 +49,7 @@ footer {
 
 .testimonial h4::after {
     content: '';
-    border: 3px solid #ccc;
+    border: 2px solid #ccc;
     width: 2rem;
     display: block;
     position: relative;
