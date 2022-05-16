@@ -6,8 +6,8 @@ export default function Testimonials({ testimonials }) {
             <h2 className="title is-1 has-text-centered has-text-light mb-6">Testimonials</h2>
             <div className="columns is-vcentered">
                 {testimonials.map((t, i) => (
-                    <div className="column is-4">
-                        <Testimonial key={i} title={t.title} content={t.content} index={testimonials.length - i} />
+                    <div className="column is-4" key={i}>
+                        <Testimonial title={t.title} content={t.content} index={testimonials.length - i} />
                     </div>
                 ))}
             </div>
