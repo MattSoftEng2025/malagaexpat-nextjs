@@ -7,7 +7,7 @@ export default function Testimonials({ testimonials }) {
             <div className="columns is-vcentered">
                 {testimonials.map((t, i) => (
                     <div className="column is-4">
-                        <Testimonial title={t.title} content={t.content} index={testimonials.length - i} />
+                        <Testimonial key={i} title={t.title} content={t.content} index={testimonials.length - i} />
                     </div>
                 ))}
             </div>
