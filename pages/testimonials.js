@@ -27,7 +27,7 @@ export default function TestimonialsPage({ testimonials }) {
                 <section className="section has-background-dark has-text-light">
                     <div className="testimonials">
                         {testimonials.map((t, i) => (
-                            <Testimonial title={t.title} content={t.content} index={testimonials.length - i} />
+                            <Testimonial key={i} title={t.title} content={t.content} index={testimonials.length - i} />
                         ))}
                     </div>
                 </section>
