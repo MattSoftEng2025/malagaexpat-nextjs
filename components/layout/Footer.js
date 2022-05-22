@@ -1,4 +1,7 @@
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookF, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
+import { SocialMedia } from '../../utils/site'
 
 export default function Footer() {
     return (
@@ -15,12 +18,30 @@ export default function Footer() {
                             <p><small><Link href="/disclaimer"><a className="has-text-light is-underlined">Full site disclaimer</a></Link></small></p>
                         </div>
                     </div>
-                    <div className="column footer-details ">
-                        <div className="content">
-                            <h3 className="has-text-light">Irina Saltmarsh</h3>
-                            <p>+34 687 733743</p>
-                            <p><a href="mailto:malagaexpat@gmail.com">malagaexpat@gmail.com</a></p>
-                            <p>© Malaga Expat Consulting 2022</p>
+                    <div className="column">
+                        <div className="block">
+                            <div className="content">
+                                <h3 className="has-text-light">Irina Saltmarsh</h3>
+                                <p>+34 687 733743</p>
+                                <p><a href="mailto:malagaexpat@gmail.com">malagaexpat@gmail.com</a></p>
+                                <p>© Malaga Expat Consulting 2022</p>
+                            </div>
+                        </div>
+                        <div className="block">
+                            <div className="is-flex">
+                                <a href={SocialMedia.facebookLink} className="is-block">
+                                    <FontAwesomeIcon icon={faFacebookF} size="1x" className="is-block" /> Facebook
+                                </a>
+                                <a href={SocialMedia.instagramLink} className="is-block">
+                                    <FontAwesomeIcon icon={faInstagramSquare} size="1x" className="is-block" /> Instagram
+                                </a>
+                                <a href={SocialMedia.twitterLink} className="is-block">
+                                    <FontAwesomeIcon icon={faTwitterSquare} size="1x" className="is-block" /> Twitter
+                                </a>
+                                <a href={SocialMedia.linkedInLink} className="is-block">
+                                    <FontAwesomeIcon icon={faLinkedin} size="1x" className="is-block" /> LinkedIn
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

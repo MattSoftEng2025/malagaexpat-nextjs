@@ -1,21 +1,25 @@
 {
-  "name": "malagaexpat-nextjs",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "bulma": "^0.9.3",
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "sass": "^1.51.0"
-  },
-  "devDependencies": {
-    "eslint": "8.14.0",
-    "eslint-config-next": "12.1.6"
-  }
+    "name": "malagaexpat-nextjs",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.1.1",
+        "@fortawesome/free-brands-svg-icons": "^6.1.1",
+        "@fortawesome/free-solid-svg-icons": "^6.1.1",
+        "@fortawesome/react-fontawesome": "^0.1.18",
+        "bulma": "^0.9.3",
+        "next": "12.1.6",
+        "react": "18.1.0",
+        "react-dom": "18.1.0",
+        "sass": "^1.51.0"
+    },
+    "devDependencies": {
+        "eslint": "8.14.0",
+        "eslint-config-next": "12.1.6"
+    }
 }

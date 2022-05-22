@@ -5,6 +5,23 @@ $info: #808080;
 
 // helpers
 
+// home page info links
+.info-links {
+    @media (min-width:600px) {
+        column-count: 2;
+    }
+}
+
+.info-link {
+    display: inline-block;
+    background: $secondary;
+    width: 100%;
+    color: #eee;
+    font-size: 1.8rem;
+    border-radius: .5rem;
+    padding: 1rem;
+    text-transform: uppercase;
+}
 
 // footer
 

@@ -11,7 +11,12 @@ export default function NavBar() {
     return (
         <nav className={`navbar ${isHomepage ? 'is-dark' : 'is-primary'} is-fixed-top`} role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
-                <Link href="/"><a className='navbar-item'><b>Malaga Expat</b></a></Link>
+                <Link href="/">
+                    <a className="navbar-item">
+                        <img src={isHomepage ? '/mexpat-black-on-yellow.png' : '/mexpat-yellow-on-black.png'} alt="Malaga Expat logo" className="mr-3" />
+                        <b>Malaga Expat</b>
+                    </a>
+                </Link>
                 <a role="button" className={`navbar-burger ${open ? 'is-active' : ''}`} aria-label="menu" aria-expanded={open} data-target="navbar" onClick={() => setOpen(!open)}>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -19,7 +24,7 @@ export default function NavBar() {
                 </a>
             </div>
             <div className={`navbar-menu ${open ? 'is-active' : ''}`}>
-                <div className="navbar-start">
+                <div className="navbar-end">
                     <Link href="/"><a className='navbar-item' onClick={() => hide()}>Home</a></Link>
                     <Link href="/our-services"><a className='navbar-item' onClick={() => hide()}>Services</a></Link>
                     <Link href="/information"><a className='navbar-item' onClick={() => hide()}>Information</a></Link>
