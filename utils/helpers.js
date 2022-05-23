@@ -6,4 +6,8 @@ const formatDate = (input) => {
     return `${date} ${month} ${year}`
 }
 
-export { formatDate }
+const postedOrLastUpdatedText = (lastUpdated, publishDate) => {
+    return lastUpdated ? `Last updated on ${formatDate(lastUpdated)}` : `Published on ${formatDate(publishDate)}`
+}
+
+export { formatDate, postedOrLastUpdatedText }

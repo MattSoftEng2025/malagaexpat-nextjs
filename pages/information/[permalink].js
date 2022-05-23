@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import ShareBar from '../../components/layout/ShareBar';
 import API from '../../utils/API'
-import { formatDate } from '../../utils/helpers';
 
 export async function getStaticPaths() {
     const permalinks = await API.getJson('/pages');
@@ -44,7 +43,7 @@ export default function InformationDetail({ page }) {
                             <div className="columns">
                                 <div className="column is-7-desktop">
                                     <h1 className="title is-size-2">{page.title}</h1>
-                                    <p className="subtitle is-size-5">{page.lastUpdated ? `Last updated on ${formatDate(page.lastUpdated)}` : `Published on ${formatDate(page.publishDate)}`}</p>
+                                    <p className="subtitle is-size-5">{postedOrLastUpdatedText(page.lastUpdated, page.publishDate)}</p>
                                 </div>
                             </div>
                         </div>

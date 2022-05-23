@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { formatDate } from '../../utils/helpers'
+import { postedOrLastUpdatedText } from '../../utils/helpers'
 import { useState, useEffect } from 'react'
 
 export default function InformationLinks({ informationLinks }) {
@@ -22,7 +22,7 @@ export default function InformationLinks({ informationLinks }) {
                     <div key={link.permalink} className="block">
                         <h6 className='title is-4'><Link href={`/information/${link.permalink}`}><a className="has-text-dark">{link.title}</a></Link></h6>
                         <p className="subtitle has-text-info is-6">
-                            {link.lastUpdated ? `Last updated on ${formatDate(link.lastUpdated)}` : `Published on ${formatDate(link.publishDate)}`}
+                            {postedOrLastUpdatedText(link.lastUpdatd, link.publishDate)}
                         </p>
                         <hr />
                     </div>

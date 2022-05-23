@@ -31,7 +31,6 @@ export default function InformationIndex({ links }) {
             </div>
             <section className="section">
                 <div className="container">
-
                     <InformationLinks informationLinks={links} />
                 </div>
             </section>

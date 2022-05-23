@@ -13,7 +13,7 @@ export default function Testimonials({ testimonials }) {
             </div>
             <div className="is-flex">
                 <Link href="/testimonials">
-                    <a className="button is-large is-primary mx-auto">View all testimonials </a>
+                    <a className="button is-large is-primary mx-auto">View all testimonials ⟶</a>
                 </Link>
             </div>
         </section>)
