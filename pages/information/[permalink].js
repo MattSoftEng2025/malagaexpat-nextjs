@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import ShareBar from '../../components/layout/ShareBar';
 import API from '../../utils/API'
+import { postedOrLastUpdatedText } from '../../utils/helpers';
 
 export async function getStaticPaths() {
     const permalinks = await API.getJson('/pages');
