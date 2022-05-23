@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Testimonials from '../components/home/Testimonials';
-import Testimonial from '../components/shared/Testimonial';
 import API from '../utils/API';
 import { homeTitle, homeDescription } from '../utils/site';
+import InformationLinks from '../components/shared/InformationLinks';
+
 
 export async function getStaticProps() {
     const informationLinks = await API.getJson('/pages/information')
@@ -66,16 +67,10 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                     </Link>
                 </div>
             </section>
-            <section className="section has-background-info">
+            <section className="section">
                 <div className="container">
-                    <h3 className="has-text-centered has-text-primary is-size-1 mb-5">Information</h3>
-                    <div className="info-links">
-                        {informationLinks.map(link => (
-                            <div key={link.permalink} className="block has-text-centered">
-                                <Link href={`/information/${link.permalink}`}><a className="info-link">{link.title}</a></Link>
-                            </div>
-                        ))}
-                    </div>
+                    <h3 className="has-text-primary is-size-3 mb-5">Information</h3>
+                    <InformationLinks informationLinks={informationLinks} />
                 </div>
             </section>
             <Testimonials testimonials={featuredTestimonials} />
