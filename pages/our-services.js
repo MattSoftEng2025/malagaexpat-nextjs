@@ -59,7 +59,7 @@ export default function OurServices({ randomTestimonials }) {
                                 <li>Getting insurance quotes including private health insurance</li>
                                 <li>Connecting utilities, including telephone and internet</li>
                                 <li>Accompanying to any authority or institution you may need to visit</li>
-                                <li>Registration of Civil Partnerships "Pareja de Hecho" with Junta de Andalusia</li>
+                                <li>Registration of Civil Partnerships <em>Pareja de Hecho</em> with Junta de Andalusia</li>
                                 <li>Applying for Tourist Letting License from Junta de Andalusia for your property which you rent out as holiday let</li>
                                 <li>Changing/renewing driving licence</li>
                                 <li>Transferring car ownership</li>
@@ -100,7 +100,7 @@ export default function OurServices({ randomTestimonials }) {
                 <div className="hero-body">
                     <div className="container">
                         <article className="content is-large has-text-centered">
-                            <p>If you already live in <b>Malaga</b> and the <b>Costa del Sol</b> or are just planning to move to <b>Spain</b>, don't hesitate to contact us with any assistance you may require, even if it is not listed in the services above. If we can help in a professional manner, ourselves or through our local contact network, we will be happy to do so!</p>
+                            <p>If you already live in <b>Malaga</b> and the <b>Costa del Sol</b> or are just planning to move to <b>Spain</b>, don&apos;t hesitate to contact us with any assistance you may require, even if it is not listed in the services above. If we can help in a professional manner, ourselves or through our local contact network, we will be happy to do so!</p>
                             <Link href="/contact"><a className="button is-large is-dark mt-4">Get in touch today ⟶</a></Link>
                         </article>
                     </div>
