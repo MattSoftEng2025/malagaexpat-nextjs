@@ -3,6 +3,14 @@ $secondary: #000000;
 $info: #808080;
 @import "../node_modules/bulma/bulma.sass";
 
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-end a {
+    font-weight: 700;
+}
+
 // helpers
 
 // home page info links
@@ -13,7 +21,6 @@ $info: #808080;
 }
 
 .info-link {
-    display: inline-block;
     background: $secondary;
     width: 100%;
     color: #eee;
@@ -21,21 +28,26 @@ $info: #808080;
     border-radius: .5rem;
     padding: 1rem;
     text-transform: uppercase;
+    margin-bottom: 1rem;
+
+    &:hover {
+        h6 {
+            color: $primary  !important;
+        }
+    }
+
+    h6 {
+        transition: color 0.3s ease;
+        color: #eee !important;
+
+
+    }
 }
 
 // footer
-
-// home info links
-// .information-links {
-//     a {
-//         background: #363636;
-//         border-radius: 1rem;
-//         color: #fff;
-//         display: flex;
-//         align-content: center;
-//         padding: .5rem .5rem;
-//     }
-// }
+footer {
+    border-top: 1px solid #ccc;
+}
 
 // testimonials
 .testimonials {

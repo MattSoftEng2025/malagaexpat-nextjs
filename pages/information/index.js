@@ -29,7 +29,7 @@ export default function InformationIndex({ links }) {
                     </div>
                 </div>
             </div>
-            <section className="section">
+            <section className="section has-background-info">
                 <div className="container">
                     <InformationLinks informationLinks={links} />
                 </div>

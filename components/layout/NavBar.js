@@ -9,11 +9,11 @@ export default function NavBar() {
     const isHomepage = router.pathname === '/';
 
     return (
-        <nav className={`navbar ${isHomepage ? 'is-dark' : 'is-primary'} is-fixed-top`} role="navigation" aria-label="main navigation">
+        <nav className={`navbar is-primary is-fixed-top`} role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <Link href="/">
                     <a className="navbar-item">
-                        <img src={isHomepage ? '/mexpat-black-on-yellow.png' : '/mexpat-yellow-on-black.png'} alt="Malaga Expat logo" className="mr-3" />
+                        <img src={'/mexpat-yellow-on-black.png'} alt="Malaga Expat logo" className="mr-3" />
                         <b>Malaga Expat</b>
                     </a>
                 </Link>
@@ -25,7 +25,7 @@ export default function NavBar() {
             </div>
             <div className={`navbar-menu ${open ? 'is-active' : ''}`}>
                 <div className="navbar-end">
-                    <Link href="/"><a className='navbar-item' onClick={() => hide()}>Home</a></Link>
+                    {!isHomepage && <Link href="/"><a className='navbar-item' onClick={() => hide()}>Home</a></Link>}
                     <Link href="/our-services"><a className='navbar-item' onClick={() => hide()}>Services</a></Link>
                     <Link href="/information"><a className='navbar-item' onClick={() => hide()}>Information</a></Link>
                     <Link href="/testimonials"><a className='navbar-item' onClick={() => hide()}>Testimonials</a></Link>

@@ -19,13 +19,14 @@ export default function InformationLinks({ informationLinks }) {
             </div>
             {
                 filtered.map(link => (
-                    <div key={link.permalink} className="block">
-                        <h6 className='title is-4'><Link href={`/information/${link.permalink}`}><a className="has-text-dark">{link.title}</a></Link></h6>
-                        <p className="subtitle has-text-info is-6">
-                            {postedOrLastUpdatedText(link.lastUpdatd, link.publishDate)}
-                        </p>
-                        <hr />
-                    </div>
+                    <Link href={`/information/${link.permalink}`} key={link.permalink} >
+                        <a className="is-block info-link">
+                            <h6 className='title is-4 has-text-dark'>{link.title}</h6>
+                            <p className="subtitle has-text-info is-6">
+                                {postedOrLastUpdatedText(link.lastUpdatd, link.publishDate)} ⟶
+                            </p>
+                        </a>
+                    </Link>
                 ))
             }
             {
