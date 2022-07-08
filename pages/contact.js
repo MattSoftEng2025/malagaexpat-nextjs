@@ -1,3 +1,7 @@
+import { faCircle, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+
 import Head from 'next/head'
 import Link from 'next/link'
 import { contactTitle, contactDescription } from '../utils/site'
@@ -13,20 +17,37 @@ export default function Contact() {
                 <div className="hero is-primary">
                     <div className="hero-body">
                         <div className="container">
-                            <div className="columns">
-                                <div className="column is-7">
-                                    <h1 className="title is-1">Contact</h1>
-                                    <p className="subtitle">If you require assistance with any matters listed in <Link href="/our-services">our services</Link> and more, or any help and advice about living or moving to Malaga and the Costa del Sol, please contact us by filling the below form and we will get back to you as soon as we can.</p>
+                            <div className="columns is-centered">
+                                <div className="column is-8">
+                                    <h1 className="title is-1 has-text-centered">Contact</h1>
+                                    <p className="subtitle is-4">If you require assistance with any matters listed in <Link href="/our-services">our services</Link> and more, or any help and advice about living or moving to Malaga and the Costa del Sol, please contact us by filling the below form and we will get back to you as soon as we can.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section className="section has-background-info">
+                <section className="section has-background-primary">
                     <div className="container">
                         <div className="columns is-centered">
                             <div className="column is-8">
-                                <form action="">
+                                <div className="columns">
+                                    <div className="column ">
+                                        <span className="icon fa-stack fa-2x">
+                                            <FontAwesomeIcon icon={faCircle} size="lg" />
+                                            <FontAwesomeIcon icon={faPhone} size="lg" />
+                                        </span>
+                                        <span className="icon fa-stack fa-2x">
+                                            <FontAwesomeIcon icon={faCircle} size="lg" />
+                                            <FontAwesomeIcon icon={faWhatsapp} size="lg" />
+                                        </span>
+                                        <p>+34 687 733743</p>
+                                    </div>
+                                    <div className="column">
+
+                                    </div>
+                                </div>
+                                <hr />
+                                <form>
                                     <div className="columns">
                                         <div className="column">
                                             <div className="field">

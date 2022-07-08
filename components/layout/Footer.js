@@ -35,9 +35,6 @@ export default function Footer() {
                                 <a href={SocialMedia.instagramLink} className="is-block">
                                     <FontAwesomeIcon icon={faInstagramSquare} size="1x" className="is-block" /> Instagram
                                 </a>
-                                <a href={SocialMedia.twitterLink} className="is-block">
-                                    <FontAwesomeIcon icon={faTwitterSquare} size="1x" className="is-block" /> Twitter
-                                </a>
                                 <a href={SocialMedia.linkedInLink} className="is-block">
                                     <FontAwesomeIcon icon={faLinkedin} size="1x" className="is-block" /> LinkedIn
                                 </a>

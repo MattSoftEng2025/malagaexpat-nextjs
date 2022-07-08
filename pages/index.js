@@ -26,18 +26,20 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                 <title>{homeTitle}</title>
                 <meta name="description" content={homeDescription} />
             </Head>
-            <section className="hero is-primary">
+            <section className="hero is-primary" style={{ backgroundImage: 'url(yellow-bg.jpg)', backgroundPosition: 'center', backgroundSize: 'cover' }}>
                 <div className="hero-body">
                     <div className="container">
                         <div className="columns">
                             <div className="column is-8 is-flex-tablet is-align-items-center">
-                                <img src="/mexpat-black-on-yellow-large.png" alt="Malaga Expat logo large" />
-                                <div className="ml-0 ml-6">
+                                <div className="">
                                     <h1 className="title is-size-1">
                                         Malaga Expat <br /> Consulting
                                     </h1>
                                     <p className="subtitle is-size-4">Malaga Expat Consulting provides help and relocation support to all expats and foreign residents in Malaga and the Costa del Sol</p>
                                 </div>
+                            </div>
+                            <div className="column is-4">
+                                <img src="/mexpat-black-on-yellow-large.png" alt="Malaga Expat logo large" />
                             </div>
                         </div>
                     </div>
@@ -50,18 +52,18 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                             <p>Whether you are already a lucky long-term resident of Spain in the Costa del Sol or just planning your move to the beautiful province of Malaga, you may require help and assistance with Spanish bureaucracy or paperwork, dealing with authorities, applying for NIE or Residency, opening a bank account, changing your driving license, negotiating with your landlord or simply visiting a Spanish doctor…</p>
                             <p>We at Malaga Expat Consulting are happy to assist in a friendly and professional manner with all the above and much more. Our services cover a full range from expat assistance to relocation consultancy and are directed to all expats residing or planning to move to Malaga and the Costa del Sol.</p>
                             <p><b>Irina Saltmarsh</b></p>
+                            <div className="is-flex is-justify-content-center my-6">
+                                <Link href="/our-services"><a className="button is-primary is-large">Our services ⟶</a></Link>
+                            </div>
                         </article>
                         <aside className="column is-5">
-                            <div className="is-flex is-justify-content-center is-align-items-center" style={{ height: '100%' }}>
-                                <img src="/irina-bw-large.jpg" alt="Irina Saltmarsh" style={{ borderRadius: '50%', width: '60%' }} />
-
+                            <div className="is-flex is-justify-content-center is-align-items-center p-6">
+                                <img src="/irina-profile.jpg" alt="Irina Saltmarsh" style={{ borderRadius: '50%' }} />
                             </div>
                         </aside>
                     </div>
                 </div>
-                <div className="is-flex is-justify-content-center my-6">
-                    <Link href="/our-services"><a className="button is-primary is-large">Our services ⟶</a></Link>
-                </div>
+
             </section>
             <div className="columns m-0">
                 <div className="column is-6 p-0">

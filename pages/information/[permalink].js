@@ -41,7 +41,7 @@ export default function InformationDetail({ page }) {
                 <div className="hero is-primary">
                     <div className="hero-body">
                         <div className="container">
-                            <div className="columns">
+                            <div className="columns is-centered">
                                 <div className="column is-7-desktop">
                                     <h1 className="title is-size-2">{page.title}</h1>
                                     <p className="subtitle is-size-5">{postedOrLastUpdatedText(page.lastUpdated, page.publishDate)}</p>
@@ -52,10 +52,11 @@ export default function InformationDetail({ page }) {
                 </div>
                 <section className="section">
                     <div className="container">
-                        <div className="columns">
+                        <div className="columns is-centered">
                             <div className="column is-7-desktop">
                                 <div className="content is-medium">
                                     <article dangerouslySetInnerHTML={{ __html: page.content }}></article>
+                                    <Link href="/information"><a className='button'>⟵ Back to information</a></Link>
                                 </div>
                             </div>
                         </div>

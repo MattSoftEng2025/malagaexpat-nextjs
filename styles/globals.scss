@@ -84,3 +84,39 @@ footer {
     position: relative;
     margin: 1rem auto;
 }
+
+#services {
+    ul {
+        list-style-type: none;
+        margin-left: 0;
+    }
+
+    .icon {
+        color: $primary;
+        height: 1rem;
+        width: 1rem;
+        margin-right: .5rem;
+    }
+}
+
+.consultation {
+    background: #ffe700 -webkit-gradient(linear, 100% 0, 0 0, from(#ffe700), color-stop(.5, #fff), to(#ffe700));
+    background-position: -6rem top;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation-name: shimmer;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-background-size: 3rem 100%;
+}
+
+@-webkit-keyframes shimmer {
+    0% {
+        background-position: -8rem top;
+    }
+
+    100% {
+        background-position: 30.5rem top;
+    }
+}

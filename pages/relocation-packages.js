@@ -23,10 +23,10 @@ export default function RelocationServices({ page }) {
                 <div className="hero is-primary">
                     <div className="hero-body">
                         <div className="container">
-                            <div className="columns">
+                            <div className="columns is-centered">
                                 <div className="column is-7-desktop">
-                                    <h1 className="title is-2">{page.title}</h1>
-                                    <p className="subtitle is-5">If you wish to be sure all aspects of your relocation to Spain are covered, you might be interested in the relocation packages with Malaga Expat Consulting addressed at securing the paperwork and/or property requirements for you and your family. </p>
+                                    <h1 className="title is-1 has-text-centered">{page.title}</h1>
+                                    <p className="subtitle is-4">If you wish to be sure all aspects of your relocation to Spain are covered, you might be interested in the relocation packages with Malaga Expat Consulting addressed at securing the paperwork and/or property requirements for you and your family. </p>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@ export default function RelocationServices({ page }) {
                 </div>
                 <section className="section">
                     <div className="container">
-                        <div className="columns">
+                        <div className="columns is-centered">
                             <div className="column is-7-desktop">
                                 <div className="content is-medium">
                                     <article dangerouslySetInnerHTML={{ __html: page.content }}></article>

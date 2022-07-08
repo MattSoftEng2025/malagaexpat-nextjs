@@ -20,10 +20,10 @@ export default function InformationIndex({ links }) {
             <div className="hero is-primary">
                 <div className="hero-body">
                     <div className="container">
-                        <div className="columns">
-                            <div className="column is-7">
+                        <div className="columns is-centered">
+                            <div className="column is-7 has-text-centered">
                                 <h1 className="title is-1">Information</h1>
-                                <p className="subtitle">Useful Information about living in or moving to Malaga and Costa del Sol and paperwork matters for expats in Spain.</p>
+                                <p className="subtitle">Useful Information about living in, or moving to Malaga and Costa del Sol and paperwork matters for expats in Spain.</p>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,16 @@ export default function InformationIndex({ links }) {
             </div>
             <section className="section has-background-info">
                 <div className="container">
-                    <InformationLinks informationLinks={links} />
+                    <div className="columns is-centered">
+                        <div className="column is-8-desktop">
+                            <InformationLinks informationLinks={links} />
+                            <div className="is-flex mb-6 mt-6">
+                                <Link href="/our-services">
+                                    <a className="button is-primary is-large mx-auto">Discover more about our services ⟶</a>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>)

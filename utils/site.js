@@ -4,7 +4,6 @@ const contactTitle = 'Contact';
 const contactDescription = 'Contact Malaga Expat'
 const SocialMedia = {
     facebookLink: 'https://facebook.com/MalagaExpat/',
-    twitterLink: 'https://twitter.com/malaga_expat',
     linkedInLink: 'https://linkedin.com/in/irinasaltmarsh/',
     instagramLink: 'https://www.instagram.com/malaga.expat/'
 }
