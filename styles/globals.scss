@@ -120,3 +120,24 @@ footer {
         background-position: 30.5rem top;
     }
 }
+
+.social-icons {
+    a {
+        display: flex;
+        align-content: center;
+        margin-bottom: 1rem;
+    }
+
+    @media (min-width:600px) {
+        display: flex;
+
+        a {
+            margin-right: 1rem;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.button {
+    white-space: wrap;
+}

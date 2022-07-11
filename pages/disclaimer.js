@@ -9,7 +9,7 @@ export async function getStaticProps() {
         props: {
             page
         },
-        revalidate: 10 * 60
+        revalidate: 60 * 60
     }
 }
 
@@ -24,10 +24,10 @@ export default function Disclaimer({ page }) {
                 <div className="hero is-primary">
                     <div className="hero-body">
                         <div className="container">
-                            <div className="columns">
+                            <div className="columns is-centered has-text-centered">
                                 <div className="column is-7-desktop">
-                                    <h1 className="title is-2">{page.title}</h1>
-                                    <p className="subtitle is-5">{postedOrLastUpdatedText(page.lastUpdated, page.publishDate)}</p>
+                                    <h1 className="title is-1">{page.title}</h1>
+                                    <p className="subtitle is-4">{postedOrLastUpdatedText(page.lastUpdated, page.publishDate)}</p>
                                 </div>
                             </div>
                         </div>
@@ -35,10 +35,27 @@ export default function Disclaimer({ page }) {
                 </div>
                 <section className="section">
                     <div className="container">
-                        <div className="columns">
+                        <div className="columns is-centered">
                             <div className="column is-7-desktop">
                                 <div className="content is-medium">
                                     <article dangerouslySetInnerHTML={{ __html: page.content }}></article>
+                                </div>
+                                <div className="columns">
+                                    <div className="column is-4">
+                                        <Link href="/contact">
+                                            <a className="button is-outlined is-dark is-fullwidth">Contact Malaga Expat ⟶</a>
+                                        </Link>
+                                    </div>
+                                    <div className="column is-4">
+                                        <Link href="/our-services">
+                                            <a className="button is-outlined is-dark is-fullwidth">View our services ⟶</a>
+                                        </Link>
+                                    </div>
+                                    <div className="column is-4">
+                                        <Link href="/about">
+                                            <a className="button is-outlined is-dark is-fullwidth">About ⟶</a>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
