@@ -64,8 +64,8 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                     </div>
                 </div>
             </section>
-            <div className="columns m-0">
-                <div className="column is-6 p-0">
+            <div className="columns is-multiline my-0">
+                <div className="column is-12-tablet is-6-desktop p-0">
                     <article className="content p-6">
                         <p>Spain and especially its southern area has always been a very popular destination for visitors from all over the world and unsurprisingly many of us have decided to make it our new home, charmed by this country&apos;s wonderful climate, natural beauty and in many ways a much more relaxed way of life. But without knowing the local language, customs, procedures and regulations the word &quot;relaxed&quot; is being quickly replaced with the word &quot;stressed&quot;.</p>
                         <p>Irina Saltmarsh, the founder and owner of Malaga Expat Consulting, knows it all too well, having herself relocated at least five times and lived in many different countries including Russia, Sweden, Germany, Switzerland and Spain, making the latter her permanent home since 2009. Armed by own relocation experience and understanding of expat&apos;s life in a foreign country combined with acquired knowledge of Spanish bureaucratic procedures, and being fluent in English, Russian, German and Spanish, Irina has founded Malaga Expat Consulting addressing the needs of expats in Malaga and the Costa del Sol.</p>
@@ -74,13 +74,13 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                         <p><b>So get in touch and let us help you!</b></p>
                     </article>
                 </div>
-                <div className="column is-6 p-0">
-                    <div className="is-flex is-align-items-center is-justify-content-center" style={{ height: '100%', backgroundImage: 'url(andalusia-1.jpeg)', backgroundPosition: 'top', backgroundSize: 'cover' }}>
+                <div className="column is-12-tablet is-6-desktop p-0">
+                    <div className="is-flex is-justify-content-center" style={{ height: '100%', backgroundImage: 'url(andalusia-1.jpeg)', backgroundPosition: 'top', backgroundSize: 'cover' }}>
                         <div className="content is-medium">
-                            <blockquote className="mx-6 has-background-primary has-text-centered is-large p-6 mt-6">Our aim is to provide to all expats living in or relocating to the area of Malaga and the Costa del Sol competent help and assistance with all affairs, no matter how big or small, in a friendly and professional manner at a competitive price.</blockquote>
+                            <blockquote className="mx-6 mt-6 has-background-primary has-text-centered is-large p-4">Our aim is to provide to all expats living in or relocating to the area of Malaga and the Costa del Sol competent help and assistance with all affairs, no matter how big or small, in a friendly and professional manner at a competitive price.</blockquote>
                             <div className="is-flex">
                                 <Link href="/contact">
-                                    <a className="button is-black is-large my-6 mx-auto">Contact Malaga Expat ⟶</a>
+                                    <a className="button mb-6 is-black is-large mx-auto">Contact Malaga Expat ⟶</a>
                                 </Link>
                             </div>
                         </div>

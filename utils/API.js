@@ -21,10 +21,13 @@ export default class API {
 
     static async get(url) {
         try {
-            const absoluteUrl = this.baseUrl + url + `?key=${this.key}`;
+            const absoluteUrl = this.baseUrl + url;
             const res = await fetch(absoluteUrl, {
                 method: 'GET',
                 agent: agent,
+                headers: {
+                    'X-API-KEY': this.key,
+                }
             })
             return res;
         } catch (error) {

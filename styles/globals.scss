@@ -139,5 +139,14 @@ footer {
 }
 
 .button {
-    white-space: wrap;
+    min-height: 2.25em;
+    white-space: unset;
+    height: auto;
+    flex-direction: column;
+}
+
+@media (max-width:600px) {
+    .has-navbar-fixed-top {
+        padding-top: 5.25rem !important;
+    }
 }
