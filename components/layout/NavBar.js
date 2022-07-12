@@ -10,7 +10,7 @@ export default function NavBar() {
     const isHomepage = router.pathname === '/';
     const path = router.pathname;
 
-    const sendEnquiry = e => {
+    const submit = e => {
 
     }
 
@@ -47,62 +47,60 @@ export default function NavBar() {
             {!modalOpen && !open && <div className='is-hidden-tablet has-background-dark p-2 has-text-centered' style={{ position: 'fixed', left: 0, right: 0, top: '3rem', zIndex: 100 }}>
                 <a className='consultation is-block' onClick={() => setModalOpen(true)}>BOOK YOUR PERSONAL ONLINE CONSULATION!</a>
             </div>}
-            <div className={`modal ${modalOpen ? 'is-active' : ''}`}>
+            <form className={`modal ${modalOpen ? 'is-active' : ''}`} onSubmit={e => submit(e)}>
                 <div className="modal-background" onClick={() => setModalOpen(false)}></div>
-                <form>
-                    <div className="modal-card">
-                        <header className="modal-card-head has-background-primary">
-                            <p className="modal-card-title is-size-5">Book Your Personal Consultation</p>
-                            <button className="delete" aria-label="close" onClick={() => setModalOpen(false)}></button>
-                        </header>
-                        <div className="modal-card-body">
-                            <div className="content">
-                                <p>Book your personal consultation now to answer any of your questions related to relocation to Spain, paperwork requirements and procedures as well as general advice.</p>
-                                <p>The price is <b>50€</b> (plus VAT) which is fully deductible from any further agreed fees. The consultation can take place on the phone, WhatsApp, Skype or in person.</p>
-                                <div className="field">
-                                    <label className="label">Your name</label>
-                                    <div className="control">
-                                        <input name="name" className="input" required />
-                                    </div>
+                <div className="modal-card">
+                    <header className="modal-card-head has-background-primary">
+                        <p className="modal-card-title is-size-5">Book Your Personal Consultation</p>
+                        <button className="delete" aria-label="close" onClick={() => setModalOpen(false)}></button>
+                    </header>
+                    <div className="modal-card-body">
+                        <div className="content">
+                            <p>Book your personal consultation now to answer any of your questions related to relocation to Spain, paperwork requirements and procedures as well as general advice.</p>
+                            <p>The price is <b>50€</b> (plus VAT) which is fully deductible from any further agreed fees. The consultation can take place on the phone, WhatsApp, Skype or in person.</p>
+                            <div className="field">
+                                <label className="label">Your name</label>
+                                <div className="control">
+                                    <input name="name" className="input" required />
                                 </div>
-                                <div className="field">
-                                    <label className="label">Consultation topic</label>
-                                    <div className="control">
-                                        <input name="message" className="input" required />
-                                    </div>
-                                </div>
-                                <div className="field">
-                                    <label className="label">Preferred time-slot</label>
-                                    <div className="control select is-fullwidth">
-                                        <select name="company" defaultValue="">
-                                            <option>Any time</option>
-                                            <option>Morning</option>
-                                            <option>Afternoon</option>
-                                            <option>Evening</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="field">
-                                    <label className="label">Your email address</label>
-                                    <div className="control">
-                                        <input type="email" name="email" className="input" required />
-                                    </div>
-                                </div>
-                                <div className="field">
-                                    <label className="label">Your phone number</label>
-                                    <div className="control">
-                                        <input name="phone" className="input" />
-                                    </div>
-                                </div>
-                                <p className="has-text-centered">Please get in touch with me to confirm the consultation</p>
                             </div>
+                            <div className="field">
+                                <label className="label">Consultation topic</label>
+                                <div className="control">
+                                    <input name="message" className="input" required />
+                                </div>
+                            </div>
+                            <div className="field">
+                                <label className="label">Preferred time-slot</label>
+                                <div className="control select is-fullwidth">
+                                    <select name="company" defaultValue="">
+                                        <option>Any time</option>
+                                        <option>Morning</option>
+                                        <option>Afternoon</option>
+                                        <option>Evening</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="field">
+                                <label className="label">Your email address</label>
+                                <div className="control">
+                                    <input type="email" name="email" className="input" required />
+                                </div>
+                            </div>
+                            <div className="field">
+                                <label className="label">Your phone number</label>
+                                <div className="control">
+                                    <input name="phone" className="input" />
+                                </div>
+                            </div>
+                            <p className="has-text-centered">Please get in touch with me to confirm the consultation</p>
                         </div>
-                        <footer className="modal-card-foot">
-                            <button className="button is-dark is-fullwidth" type="submit">Send enquiry ⟶</button>
-                        </footer>
                     </div>
-                </form>
-            </div>
+                    <footer className="modal-card-foot">
+                        <button className="button is-dark is-fullwidth" type="submit">Send enquiry ⟶</button>
+                    </footer>
+                </div>
+            </form>
         </>
     )
 }

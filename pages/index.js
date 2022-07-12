@@ -64,7 +64,7 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                     </div>
                 </div>
             </section>
-            <div className="columns is-multiline my-0">
+            <div className="columns is-multiline m-0">
                 <div className="column is-12-tablet is-6-desktop p-0">
                     <article className="content p-6">
                         <p>Spain and especially its southern area has always been a very popular destination for visitors from all over the world and unsurprisingly many of us have decided to make it our new home, charmed by this country&apos;s wonderful climate, natural beauty and in many ways a much more relaxed way of life. But without knowing the local language, customs, procedures and regulations the word &quot;relaxed&quot; is being quickly replaced with the word &quot;stressed&quot;.</p>
