@@ -8,7 +8,7 @@ import InformationLinks from '../components/shared/InformationLinks';
 
 export async function getStaticProps() {
     const informationLinks = await API.getJson('/pages/information')
-    const featuredTestimonials = await API.getJson('/testimonials/featured')
+    const featuredTestimonials = await API.getJson('/testimonials/homepage')
     return {
         props: {
             informationLinks,
