@@ -43,6 +43,7 @@ export default class API {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-API-KEY': this.key,
                 },
                 agent: agent,
                 body: JSON.stringify(payload)

@@ -8,6 +8,7 @@ export default function NavBar() {
     const hide = () => setOpen(false)
     const router = useRouter()
     const isHomepage = router.pathname === '/';
+    const path = router.pathname;
 
     const sendEnquiry = e => {
 
@@ -35,11 +36,11 @@ export default function NavBar() {
                             <a className='consultation is-block has-background-dark' onClick={() => setModalOpen(true)}>BOOK YOUR PERSONAL ONLINE CONSULATION!</a>
                         </div>
                         {!isHomepage && <Link href="/"><a className='navbar-item' onClick={() => hide()}>Home</a></Link>}
-                        <Link href="/about"><a className='navbar-item' onClick={() => hide()}>About</a></Link>
-                        <Link href="/our-services"><a className='navbar-item' onClick={() => hide()}>Services</a></Link>
-                        <Link href="/information"><a className='navbar-item' onClick={() => hide()}>Information</a></Link>
-                        <Link href="/testimonials"><a className='navbar-item' onClick={() => hide()}>Testimonials</a></Link>
-                        <Link href="/contact"><a className='navbar-item' onClick={() => hide()}>Contact</a></Link>
+                        <Link href="/about"><a className={`navbar-item ${(path === '/about' ? 'is-active' : null)}`} onClick={() => hide()}>About</a></Link>
+                        <Link href="/our-services"><a className={`navbar-item ${(path === '/our-services' ? 'is-active' : null)}`} onClick={() => hide()}>Services</a></Link>
+                        <Link href="/information"><a className={`navbar-item ${(path.includes('information') ? 'is-active' : null)}`} onClick={() => hide()}>Information</a></Link>
+                        <Link href="/testimonials"><a className={`navbar-item ${(path === '/testimonials' ? 'is-active' : null)}`} onClick={() => hide()}>Testimonials</a></Link>
+                        <Link href="/contact"><a className={`navbar-item ${(path === '/contact' ? 'is-active' : null)}`} onClick={() => hide()}>Contact</a></Link>
                     </div>
                 </div>
             </nav>
