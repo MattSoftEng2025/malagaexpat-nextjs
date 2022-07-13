@@ -14,7 +14,7 @@ export async function getStaticProps() {
             informationLinks,
             featuredTestimonials
         },
-        revalidate: 10 * 60
+        revalidate: 15 * 60
     }
 }
 

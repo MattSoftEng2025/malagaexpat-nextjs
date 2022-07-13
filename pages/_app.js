@@ -1,14 +1,33 @@
 import '../styles/globals.scss'
 import Link from 'next/link'
 import NavBar from '../components/layout/NavBar'
-import ShareBar from '../components/layout/ShareBar'
 import Footer from '../components/layout/Footer'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import * as Fathom from 'fathom-client';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter()
     const isRelocationPackages = router.pathname === '/relocation-packages';
+
+    useEffect(() => {
+        Fathom.load('JFQKQISE', {
+            url: 'https://cdn.usefathom.com/script.js',
+            includedDomains: ['www.malagaexpat.com', 'malagaexpat.com'],
+        });
+
+        function onRouteChangeComplete() {
+            Fathom.trackPageview();
+        }
+        // Record a pageview when route changes
+        router.events.on('routeChangeComplete', onRouteChangeComplete);
+
+        // Unassign event listener
+        return () => {
+            router.events.off('routeChangeComplete', onRouteChangeComplete);
+        };
+    }, []);
 
     return (
         <>

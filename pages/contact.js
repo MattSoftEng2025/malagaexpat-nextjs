@@ -36,6 +36,7 @@ export default function Contact() {
             setFailed(true)
         }
     }
+
     return (
         <>
             <Head>
