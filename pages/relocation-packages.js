@@ -68,7 +68,7 @@ export default function RelocationServices({ page }) {
                                             <tbody>
                                                 <tr>
                                                     <th>Individual</th>
-                                                    <td>350&euro;</td>
+                                                    <td>325&euro;</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Couple</th>
