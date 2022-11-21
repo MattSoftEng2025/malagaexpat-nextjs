@@ -8,7 +8,6 @@ export async function getStaticProps() {
         props: {
             testimonials
         },
-        revalidate: 10 * 60
     }
 }
 

@@ -11,7 +11,6 @@ export async function getStaticProps() {
         props: {
             randomTestimonials
         },
-        revalidate: 10 * 60
     }
 }
 

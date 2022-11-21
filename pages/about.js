@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import API from '../utils/API'
-import { postedOrLastUpdatedText } from '../utils/helpers'
 
 export async function getStaticProps() {
     const page = await API.getJson(`/pages/about`)
@@ -10,7 +9,6 @@ export async function getStaticProps() {
         props: {
             page
         },
-        revalidate: 10 * 60
     }
 }
 
