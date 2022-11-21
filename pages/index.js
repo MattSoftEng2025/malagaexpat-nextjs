@@ -5,7 +5,6 @@ import API from '../utils/API';
 import { homeTitle, homeDescription } from '../utils/site';
 import InformationLinks from '../components/shared/InformationLinks';
 
-
 export async function getStaticProps() {
     const informationLinks = await API.getJson('/pages/information')
     const featuredTestimonials = await API.getJson('/testimonials/homepage')
