@@ -10,7 +10,7 @@ export default function InformationLinks({ informationLinks }) {
         let lower = q.toLocaleLowerCase();
         const results = informationLinks.filter(el => el.title.toLocaleLowerCase().indexOf(lower) > -1);
         setFiltered(results);
-    }, [q, setFiltered])
+    }, [q, setFiltered, informationLinks])
 
     return (
         <>
