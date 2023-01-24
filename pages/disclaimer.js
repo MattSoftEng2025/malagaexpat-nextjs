@@ -41,18 +41,15 @@ export default function Disclaimer({ page }) {
                                 </div>
                                 <div className="columns">
                                     <div className="column is-4">
-                                        <Link href="/contact">
-                                            <a className="button is-outlined is-dark is-fullwidth">Contact Malaga Expat ⟶</a>
+                                        <Link href="/contact" className="button is-outlined is-dark is-fullwidth">Contact Malaga Expat ⟶
                                         </Link>
                                     </div>
                                     <div className="column is-4">
-                                        <Link href="/our-services">
-                                            <a className="button is-outlined is-dark is-fullwidth">View our services ⟶</a>
+                                        <Link href="/our-services" className="button is-outlined is-dark is-fullwidth">View our services ⟶
                                         </Link>
                                     </div>
                                     <div className="column is-4">
-                                        <Link href="/about">
-                                            <a className="button is-outlined is-dark is-fullwidth">About ⟶</a>
+                                        <Link href="/about" className="button is-outlined is-dark is-fullwidth">About ⟶
                                         </Link>
                                     </div>
                                 </div>

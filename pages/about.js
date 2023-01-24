@@ -56,15 +56,9 @@ export default function About({ page }) {
                                 </article>
                                 <hr />
                                 <div className="columns">
-                                    <div className="column is-6">
-                                        <Link href="/contact">
-                                            <a className="button is-outlined is-dark is-fullwidth">Contact Malaga Expat ⟶</a>
-                                        </Link>
+                                    <div className="column is-6"><Link href="/contact" className="button is-outlined is-dark is-fullwidth">Contact Malaga Expat ⟶</Link>
                                     </div>
-                                    <div className="column is-6">
-                                        <Link href="/our-services">
-                                            <a className="button is-outlined is-dark is-fullwidth">View our services ⟶</a>
-                                        </Link>
+                                    <div className="column is-6"><Link href="/our-services" className="button is-outlined is-dark is-fullwidth">View our services ⟶</Link>
                                     </div>
                                 </div>
                             </div>

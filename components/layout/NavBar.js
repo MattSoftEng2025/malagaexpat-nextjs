@@ -114,11 +114,9 @@ export default function NavBar() {
         <>
             <nav className={`navbar is-primary is-fixed-top`} role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <Link href="/">
-                        <a className="navbar-item">
+                    <Link href="/" className="navbar-item">
                             <img src={'/mexpat-yellow-on-black.png'} alt="Malaga Expat logo" className="mr-3" />
                             <b>Malaga Expat</b>
-                        </a>
                     </Link>
                     <a role="button" className={`navbar-burger ${open ? 'is-active' : ''}`} aria-label="menu" aria-expanded={open} data-target="navbar" onClick={() => setOpen(!open)}>
                         <span aria-hidden="true"></span>
@@ -131,12 +129,12 @@ export default function NavBar() {
                         <div className="navbar-item">
                             <a className='consultation is-block has-background-dark' onClick={() => setModalOpen(true)}>BOOK YOUR PERSONAL ONLINE CONSULATION!</a>
                         </div>
-                        {!isHomepage && <Link href="/"><a className='navbar-item' onClick={() => hide()}>Home</a></Link>}
-                        <Link href="/about"><a className={`navbar-item ${(path === '/about' ? 'is-active' : null)}`} onClick={() => hide()}>About</a></Link>
-                        <Link href="/our-services"><a className={`navbar-item ${(path === '/our-services' ? 'is-active' : null)}`} onClick={() => hide()}>Services</a></Link>
-                        <Link href="/information"><a className={`navbar-item ${(path.includes('information') ? 'is-active' : null)}`} onClick={() => hide()}>Information</a></Link>
-                        <Link href="/testimonials"><a className={`navbar-item ${(path === '/testimonials' ? 'is-active' : null)}`} onClick={() => hide()}>Testimonials</a></Link>
-                        <Link href="/contact"><a className={`navbar-item ${(path === '/contact' ? 'is-active' : null)}`} onClick={() => hide()}>Contact</a></Link>
+                        {!isHomepage && <Link href="/" className='navbar-item' onClick={() => hide()}>Home</Link>}
+                        <Link href="/about" className={`navbar-item ${(path === '/about' ? 'is-active' : null)}`} onClick={() => hide()}>About</Link>
+                        <Link href="/our-services" className={`navbar-item ${(path === '/our-services' ? 'is-active' : null)}`} onClick={() => hide()}>Services</Link>
+                        <Link href="/information" className={`navbar-item ${(path.includes('information') ? 'is-active' : null)}`} onClick={() => hide()}>Information</Link>
+                        <Link href="/testimonials" className={`navbar-item ${(path === '/testimonials' ? 'is-active' : null)}`} onClick={() => hide()}>Testimonials</Link>
+                        <Link href="/contact" className={`navbar-item ${(path === '/contact' ? 'is-active' : null)}`} onClick={() => hide()}>Contact</Link>
                     </div>
                 </div>
             </nav>

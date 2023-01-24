@@ -14,13 +14,13 @@
         "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
         "bulma": "^0.9.3",
         "fathom-client": "^3.5.0",
-        "next": "^13.1.1",
+        "next": "^13.1.5",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "sass": "^1.51.0"
     },
     "devDependencies": {
         "eslint": "8.14.0",
-        "eslint-config-next": "^13.1.1"
+        "eslint-config-next": "^13.1.5"
     }
 }

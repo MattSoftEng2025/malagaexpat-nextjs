@@ -74,7 +74,7 @@ export default function Footer() {
                         <p>The legal basis for the processing of your personal data is the execution of the contracted service. The future offer of products and services will be based on the requested consent, and in the case of the withdrawal of this consent, this would never condition the execution of the contract.</p>
                         <p>The data provided will be kept as long as the commercial relationship is maintained or during the years necessary to comply with the legal obligations. The data will not be transferred to third parties except in cases where there is a legal obligation.</p>
                         <p>You have the right to obtain confirmation of whether or not we are treating your personal data under IRINA SALTMARSH TERENTYEVA and therefore you have the right to exercise your rights of access, rectification, treatment limitation, portability, opposition to treatment and suppression of your data by writing to the address postal mentioned above or electronic account malagaexpat@gmail.com attached mail copy of the ID in both cases, as well as the right to file a claim with the Control Authority (aepd.es). We also request authorization to offer you products and services related to those requested, executed and/or marketed by our company enabling us to keep you as a client.</p>
-                        <Link href="/disclaimer"><a className="has-text-light is-underlined">Full site disclaimer</a></Link>
+                        <Link href="/disclaimer" className="has-text-light is-underlined">Full site disclaimer</Link>
                     </div>
                 </div>
             </div>

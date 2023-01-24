@@ -55,7 +55,7 @@ export default function InformationDetail({ page }) {
                             <div className="column is-7-desktop">
                                 <div className="content is-medium">
                                     <article dangerouslySetInnerHTML={{ __html: page.content }}></article>
-                                    <Link href="/information"><a className='button'>⟵ Back to information</a></Link>
+                                    <Link href="/information" className='button'>⟵ Back to information</Link>
                                 </div>
                             </div>
                         </div>

@@ -51,7 +51,7 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                             <p>We at Malaga Expat Consulting are happy to assist in a friendly and professional manner with all the above and much more. Our services cover a full range from expat assistance to relocation consultancy and are directed to all expats residing or planning to move to Malaga and the Costa del Sol.</p>
                             <p className='has-text-centered-mobile'><b>Irina Saltmarsh</b></p>
                             <div className="is-flex is-justify-content-center my-6">
-                                <Link href="/our-services"><a className="button is-primary is-large">Our services ⟶</a></Link>
+                                <Link href="/our-services" className="button is-primary is-large">Our services ⟶</Link>
                             </div>
                         </article>
                         <aside className="column is-5">
@@ -77,8 +77,7 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                         <div className="content is-medium">
                             <blockquote className="mx-6 mt-6 has-background-primary has-text-centered is-large p-4">Our aim is to provide to all expats living in or relocating to the area of Malaga and the Costa del Sol competent help and assistance with all affairs, no matter how big or small, in a friendly and professional manner at a competitive price.</blockquote>
                             <div className="is-flex">
-                                <Link href="/contact">
-                                    <a className="button mb-6 is-black is-large mx-auto">Contact Malaga Expat ⟶</a>
+                                <Link href="/contact" className="button mb-6 is-black is-large mx-auto">Contact Malaga Expat ⟶
                                 </Link>
                             </div>
                         </div>

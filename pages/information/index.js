@@ -35,8 +35,7 @@ export default function InformationIndex({ links }) {
                         <div className="column is-8-desktop">
                             <InformationLinks informationLinks={links} />
                             <div className="is-flex mb-6 mt-6">
-                                <Link href="/our-services">
-                                    <a className="button is-primary is-large mx-auto is-multiline">Discover more about our services ⟶</a>
+                                <Link href="/our-services" className="button is-primary is-large mx-auto is-multiline">Discover more about our services ⟶
                                 </Link>
                             </div>
                         </div>

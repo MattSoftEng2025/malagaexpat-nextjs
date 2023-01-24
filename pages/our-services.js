@@ -41,13 +41,12 @@ export default function OurServices({ randomTestimonials }) {
                 <div className="container content is-medium">
                     <blockquote><p>Our most distinctive feature in all we do is a professional and structured approach with focus to details and high level of commitment to customer requirements. Below we list just some of the services we can provide in Malaga and the Costa del Sol, but please contact us with your requirements and we will be happy to customize our service proposal for you.</p></blockquote>
                     <div className="is-flex mb-6 mt-4">
-                        <Link href="/relocation-packages">
-                            <a className="button is-multiline is-primary is-large mx-auto">
+                        <Link href="/relocation-packages" className="button is-multiline is-primary is-large mx-auto">
                                 <span className='icon is-small mr-3'>
                                     <FontAwesomeIcon icon={faTruckMoving} />
                                 </span>
                                 <span>Relocation Packages ⟶</span>
-                            </a>
+                            
                         </Link>
                     </div>
                     <div className="columns" id="services">
@@ -99,7 +98,7 @@ export default function OurServices({ randomTestimonials }) {
                     <div className="container">
                         <article className="content is-large has-text-centered">
                             <p>If you already live in <b>Malaga</b> and the <b>Costa del Sol</b> or are just planning to move to <b>Spain</b>, don&apos;t hesitate to contact us with any assistance you may require, even if it is not listed in the services above. If we can help in a professional manner, ourselves or through our local contact network, we will be happy to do so!</p>
-                            <Link href="/contact"><a className="button is-large is-dark mt-4">Get in touch today ⟶</a></Link>
+                            <Link href="/contact" className="button is-large is-dark mt-4">Get in touch today ⟶</Link>
                         </article>
                     </div>
                 </div>

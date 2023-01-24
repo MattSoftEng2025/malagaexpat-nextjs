@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
             <Footer />
             {!isRelocationPackages && <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, padding: '1rem', backgroundColor: '#000', borderTop: '1px solid #ccc' }} className="is-flex is-hidden-desktop">
-                <Link href="/relocation-packages"><a className='mx-auto has-text-light'>Relocation packages ⟶</a></Link>
+                <Link href="/relocation-packages" className='mx-auto has-text-light'>Relocation packages ⟶</Link>
             </div>}
         </>
     )

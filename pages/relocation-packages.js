@@ -108,10 +108,7 @@ export default function RelocationServices({ page }) {
                                 <div className="content is-medium">
                                     <p>When it comes to the geographical areas, as name suggests, Malaga Expat Consulting is based in the province of Malaga, in the town of Alhaurin de la Torre, and covers the areas between Torre del Mar and Marbella on the coast, and up to Coin-Pizzara inland. Our work area can be extended up till Nerja in the east, and down till Estepona in the south, however the prices may be subject to additional surcharge.</p>
                                     <p>If you are unsure what is better for you and your family, whether you need a standard or a customised relocation package, or maybe just assistance with some single paperwork matters – do get in touch and let us assist you based on your personal requirements.</p>
-                                    <hr />
-                                    <Link href="/contact">
-                                        <a className="button is-outlined is-dark is-fullwidth">Contact Malaga Expat ⟶</a>
-                                    </Link>
+                                    <hr /><Link href="/contact" className="button is-outlined is-dark is-fullwidth">Contact Malaga Expat ⟶</Link>
                                 </div>
                             </div>
                         </div>
