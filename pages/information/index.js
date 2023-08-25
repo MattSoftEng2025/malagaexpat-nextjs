@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import InformationLinks from '../../components/shared/InformationLinks';
 import API from '../../utils/API'
@@ -14,7 +13,6 @@ export async function getStaticProps() {
 }
 
 export default function InformationIndex({ links }) {
-
     return (
         <main>
             <div className="hero is-primary">
