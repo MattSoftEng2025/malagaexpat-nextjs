@@ -1,11 +1,10 @@
-import Head from 'next/head'
+import { postedOrLastUpdatedText } from '../../utils/helpers'
 import Link from 'next/link'
-import ShareBar from '../../components/layout/ShareBar';
+import Head from 'next/head';
 import API from '../../utils/API'
-import { postedOrLastUpdatedText } from '../../utils/helpers';
 
 export async function getStaticPaths() {
-    const permalinks = await API.getJson('/pages');
+    const permalinks = await API.getJson('/stories/paths');
     const paths = permalinks.map(permalink => { return { params: { permalink } } })
     return {
         paths,
@@ -14,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const res = await API.get(`/pages/${params.permalink}`)
+    const res = await API.get(`/stories/${params.permalink}`)
     if (!res.ok) {
         return {
             notFound: true
@@ -24,17 +23,17 @@ export async function getStaticProps({ params }) {
     const data = await res.json();
     return {
         props: {
-            page: data
+            story: data
         },
     }
 }
 
-export default function InformationDetail({ page }) {
+export default function StoryDetail({ story }) {
     return (
         <>
             <Head>
-                <title>{page.metaTitle}</title>
-                <meta name="description" content={page.metaDescription} />
+                <title>{story.title}</title>
+                <meta name="description" content={story.snippet} />
             </Head>
             <main>
                 <div className="hero is-primary">
@@ -42,8 +41,9 @@ export default function InformationDetail({ page }) {
                         <div className="container">
                             <div className="columns is-centered">
                                 <div className="column is-7-desktop">
-                                    <h1 className="title is-size-2">{page.title}</h1>
-                                    <p className="subtitle is-size-5">{postedOrLastUpdatedText(page.lastUpdated, page.publishDate)}</p>
+                                    <small className='heading'>Relocation story</small>
+                                    <h1 className="title is-size-2">{story.title}</h1>
+                                    <p className="subtitle is-size-5">{postedOrLastUpdatedText(story.lastUpdated, story.publishDate)}</p>
                                 </div>
                             </div>
                         </div>
@@ -54,14 +54,14 @@ export default function InformationDetail({ page }) {
                         <div className="columns is-centered">
                             <div className="column is-7-desktop">
                                 <div className="content is-medium">
-                                    <article dangerouslySetInnerHTML={{ __html: page.content }}></article>
-                                    <Link href="/information" className='button mt-5'>⟵ Back to information</Link>
+                                    <article dangerouslySetInnerHTML={{ __html: story.content }}></article>
+                                    <Link href="/stories" className='button mt-5'>⟵ Back to relocation stories</Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                {/* <ShareBar url={`/information/${page.permalink}`} metaDescription={page.metaDescription} /> */}
             </main>
-        </>)
+        </>
+    )
 }

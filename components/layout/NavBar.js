@@ -102,6 +102,15 @@ function Modal({ modalOpen, setModalOpen }) {
         </form>)
 }
 
+const NavLink = ({ currentPath, title, href, includesHref = false, hideFunction }) => {
+    if (includesHref) {
+        return <Link href={href} className={`navbar-item ${(currentPath.includes(href) ? 'is-active' : null)}`} onClick={() => hideFunction}>
+            {title}</Link>
+    } else {
+        return <Link href={href} className={`navbar-item ${(currentPath === href ? 'is-active' : null)}`} onClick={() => hideFunction}>{title}</Link>
+    }
+}
+
 export default function NavBar() {
     const [open, setOpen] = useState(false)
     const [modalOpen, setModalOpen] = useState(false)
@@ -115,8 +124,8 @@ export default function NavBar() {
             <nav className={`navbar is-primary is-fixed-top`} role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <Link href="/" className="navbar-item">
-                            <img src={'/mexpat-yellow-on-black.png'} alt="Malaga Expat logo" className="mr-3" />
-                            <b>Malaga Expat</b>
+                        <img src={'/mexpat-yellow-on-black.png'} alt="Malaga Expat logo" className="mr-3" />
+                        <b>Malaga Expat</b>
                     </Link>
                     <a role="button" className={`navbar-burger ${open ? 'is-active' : ''}`} aria-label="menu" aria-expanded={open} data-target="navbar" onClick={() => setOpen(!open)}>
                         <span aria-hidden="true"></span>
@@ -125,16 +134,19 @@ export default function NavBar() {
                     </a>
                 </div>
                 <div className={`navbar-menu ${open ? 'is-active' : ''}`}>
-                    <div className="navbar-end">
+                    <div className='navbar-start'>
                         <div className="navbar-item">
-                            <a className='consultation is-block has-background-dark' onClick={() => setModalOpen(true)}>BOOK YOUR PERSONAL ONLINE CONSULATION!</a>
+                            <a className='consultation is-block has-background-dark is-hidden-touch is-hidden-widescreen' onClick={() => setModalOpen(true)}>ONLINE CONSULTATION!</a>
+                            <a className='consultation is-block has-background-dark is-hidden-touch is-hidden-desktop-only' onClick={() => setModalOpen(true)}>BOOK YOUR ONLINE CONSULTATION!</a>
                         </div>
-                        {!isHomepage && <Link href="/" className='navbar-item' onClick={() => hide()}>Home</Link>}
-                        <Link href="/about" className={`navbar-item ${(path === '/about' ? 'is-active' : null)}`} onClick={() => hide()}>About</Link>
-                        <Link href="/our-services" className={`navbar-item ${(path === '/our-services' ? 'is-active' : null)}`} onClick={() => hide()}>Services</Link>
-                        <Link href="/information" className={`navbar-item ${(path.includes('information') ? 'is-active' : null)}`} onClick={() => hide()}>Information</Link>
-                        <Link href="/testimonials" className={`navbar-item ${(path === '/testimonials' ? 'is-active' : null)}`} onClick={() => hide()}>Testimonials</Link>
-                        <Link href="/contact" className={`navbar-item ${(path === '/contact' ? 'is-active' : null)}`} onClick={() => hide()}>Contact</Link>
+                    </div>
+                    <div className="navbar-end">
+                        <NavLink title="About" href="/about" currentPath={path} hideFunction={hide} />
+                        <NavLink title="Services" href="/our-services" currentPath={path} hideFunction={hide} />
+                        <NavLink title="Information" href="/information" currentPath={path} includesHref={true} hideFunction={hide} />
+                        <NavLink title="Testimonials" href="/testimonials" currentPath={path} hideFunction={hide} />
+                        <NavLink title="Relocation Stories" href="/stories" currentPath={path} includesHref={true} hideFunction={hide} />
+                        <NavLink title="Contact" href="/contact" currentPath={path} hideFunction={hide} />
                     </div>
                 </div>
             </nav>

@@ -19,7 +19,7 @@ export default function OurServices({ randomTestimonials }) {
     return (
         <>
             <Head>
-                <title>Our Services - Malaga Expat proto</title>
+                <title>Our Services - Malaga Expat</title>
             </Head>
             <section className="hero is-primary">
                 <div className="hero-body">
@@ -42,11 +42,11 @@ export default function OurServices({ randomTestimonials }) {
                     <blockquote><p>Our most distinctive feature in all we do is a professional and structured approach with focus to details and high level of commitment to customer requirements. Below we list just some of the services we can provide in Malaga and the Costa del Sol, but please contact us with your requirements and we will be happy to customize our service proposal for you.</p></blockquote>
                     <div className="is-flex mb-6 mt-4">
                         <Link href="/relocation-packages" className="button is-multiline is-primary is-large mx-auto">
-                                <span className='icon is-small mr-3'>
-                                    <FontAwesomeIcon icon={faTruckMoving} />
-                                </span>
-                                <span>Relocation Packages ⟶</span>
-                            
+                            <span className='icon is-small mr-3'>
+                                <FontAwesomeIcon icon={faTruckMoving} />
+                            </span>
+                            <span>Relocation Packages ⟶</span>
+
                         </Link>
                     </div>
                     <div className="columns" id="services">
