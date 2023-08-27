@@ -122,7 +122,7 @@ export default function NavBar() {
         <>
             <nav className={`navbar is-primary is-fixed-top`} role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <Link href="/" className="navbar-item">
+                    <Link href="/" className="navbar-item" onClick={hide}>
                         <img src={'/mexpat-yellow-on-black.png'} alt="Malaga Expat logo" className="mr-3" />
                         <b>Malaga Expat</b>
                     </Link>
