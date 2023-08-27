@@ -105,7 +105,6 @@ function Modal({ modalOpen, setModalOpen }) {
 const NavLink = ({ currentPath, title, href, includesHref = false, hideFunction }) => {
     if (includesHref) {
         return <Link href={href} className={`navbar-item ${(currentPath.includes(href) ? 'is-active' : null)}`} onClick={() => hideFunction}>
-            {title === 'Relocation stories' && <span className='tag is-success is-small mr-3'>NEW</span>}
             {title}</Link>
     } else {
         return <Link href={href} className={`navbar-item ${(currentPath === href ? 'is-active' : null)}`} onClick={() => hideFunction}>{title}</Link>
@@ -135,16 +134,19 @@ export default function NavBar() {
                     </a>
                 </div>
                 <div className={`navbar-menu ${open ? 'is-active' : ''}`}>
-                    <div className="navbar-end">
+                    <div className='navbar-start'>
                         <div className="navbar-item">
-                            <a className='consultation is-block has-background-dark' onClick={() => setModalOpen(true)}>BOOK YOUR PERSONAL ONLINE CONSULATION!</a>
+                            <a className='consultation is-block has-background-dark is-hidden-widescreen' onClick={() => setModalOpen(true)}>ONLINE CONSULATION!</a>
+                            <a className='consultation is-block has-background-dark is-hidden-desktop-only' onClick={() => setModalOpen(true)}>BOOK YOUR PERSONAL ONLINE CONSULATION!</a>
                         </div>
-                        {!isHomepage && <NavLink title="Home" currentPath={path} href="/" hideFunction={hide} />}
+                    </div>
+                    <div className="navbar-end">
+                        {!isHomepage && <NavLink title="Home" href="/" currentPath={path} hideFunction={hide} />}
                         <NavLink title="About" href="/about" currentPath={path} hideFunction={hide} />
                         <NavLink title="Services" href="/our-services" currentPath={path} hideFunction={hide} />
                         <NavLink title="Information" href="/information" currentPath={path} includesHref={true} hideFunction={hide} />
                         <NavLink title="Testimonials" href="/testimonials" currentPath={path} hideFunction={hide} />
-                        <NavLink title="Relocation stories" href="/stories" currentPath={path} includesHref={true} hideFunction={hide} />
+                        <NavLink title="Stories" href="/stories" currentPath={path} includesHref={true} hideFunction={hide} />
                         <NavLink title="Contact" href="/contact" currentPath={path} hideFunction={hide} />
                     </div>
                 </div>

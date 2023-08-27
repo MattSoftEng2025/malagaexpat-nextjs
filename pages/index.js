@@ -4,20 +4,23 @@ import Testimonials from '../components/home/Testimonials';
 import API from '../utils/API';
 import { homeTitle, homeDescription } from '../utils/site';
 import InformationLinks from '../components/shared/InformationLinks';
+import { postedOrLastUpdatedText } from '../utils/helpers';
 
 export async function getStaticProps() {
     const informationLinks = await API.getJson('/pages/information')
     const featuredTestimonials = await API.getJson('/testimonials/homepage')
+    const latestStoryData = await API.getJson('/stories?count=3')
+
     return {
         props: {
             informationLinks,
-            featuredTestimonials
+            featuredTestimonials,
+            latestStoryData
         },
     }
 }
 
-export default function Home({ informationLinks, featuredTestimonials }) {
-
+export default function Home({ informationLinks, featuredTestimonials, latestStoryData }) {
     return (
         <>
             <Head>
@@ -84,6 +87,25 @@ export default function Home({ informationLinks, featuredTestimonials }) {
                     </div>
                 </div>
             </div>
+            <section className='stories py-6 has-background-light'>
+                <div className='container'>
+                    {latestStoryData.latest.map(story =>
+                        <div className='columns is-centered' key={story.title}>
+                            <div className='content is-large column is-6'>
+                                <span className='is-heading is-size-7'>{postedOrLastUpdatedText(story.lastUpdated, story.publishDate)}</span>
+                                <h4 className='mb-2'>{story.title}</h4>
+                                <p>{story.snippet}</p>
+                                <Link href={`/story/${story.permalink}`} className="ml-auto m-3 button is-primary is-dark">Read more ⟶</Link>
+                            </div>
+                        </div>)
+                    }
+                    {latestStoryData.totalStories > 3 &&
+                        <div className='is-flex'>
+                            <Link href="/stories" className="my-6 mx-auto button is-dark">Read more relocation stories ⟶</Link>
+                        </div>
+                    }
+                </div>
+            </section>
             <section className="section has-background-info">
                 <div className="container">
                     <div className="columns is-centered">

@@ -13,7 +13,7 @@ export async function getStaticProps({ params }) {
     const data = await res.json();
     return {
         props: {
-            stories: data
+            stories: data.latest
         },
     }
 }
@@ -24,9 +24,9 @@ export default function StoriesIndex({ stories }) {
                 <div className="hero-body">
                     <div className="container">
                         <div className="columns is-centered">
-                            <div className="column is-7 has-text-centered">
-                                <h1 className="title is-1">Relocation Stories</h1>
-                                <p className="subtitle">Here we would like to share with you the real stories of real people (individuals, couples and families) who have taken the leap and relocated to Spain, to the beautiful area of Malaga and Costa del Sol. Real people like you, of different backgrounds, who are willing to share their real experiences of relocating and building their new life in Spain. We hope you will find it useful, and who knows - maybe one day your own story will be published here?!</p>
+                            <div className="column is-7">
+                                <h1 className="title is-1 has-text-centered">Relocation Stories</h1>
+                                <p className="subtitle">Here we would like to share with you real stories of real people (individuals, couples and families) who have taken the leap and relocated to Spain, to the beautiful area of Malaga and Costa del Sol. Real people like you, of different backgrounds, who are willing to share their real experiences of relocating and building their new life in Spain. We have created a list of questions and asked them to answer those as sincerely as possible. We here publish their answers without any edits or changes. We hope you will find it useful, and who knows - maybe one day your own story will be published here?!</p>
                             </div>
                         </div>
                     </div>
