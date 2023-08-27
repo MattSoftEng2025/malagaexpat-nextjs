@@ -104,10 +104,10 @@ function Modal({ modalOpen, setModalOpen }) {
 
 const NavLink = ({ currentPath, title, href, includesHref = false, hideFunction }) => {
     if (includesHref) {
-        return <Link href={href} className={`navbar-item ${(currentPath.includes(href) ? 'is-active' : null)}`} onClick={() => hideFunction}>
+        return <Link href={href} className={`navbar-item ${(currentPath.includes(href) ? 'is-active' : null)}`} onClick={hideFunction}>
             {title}</Link>
     } else {
-        return <Link href={href} className={`navbar-item ${(currentPath === href ? 'is-active' : null)}`} onClick={() => hideFunction}>{title}</Link>
+        return <Link href={href} className={`navbar-item ${(currentPath === href ? 'is-active' : null)}`} onClick={hideFunction}>{title}</Link>
     }
 }
 
