@@ -136,8 +136,8 @@ export default function NavBar() {
                 <div className={`navbar-menu ${open ? 'is-active' : ''}`}>
                     <div className='navbar-start'>
                         <div className="navbar-item">
-                            <a className='consultation is-block has-background-dark is-hidden-touch is-hidden-widescreen' onClick={() => setModalOpen(true)}>ONLINE CONSULATION!</a>
-                            <a className='consultation is-block has-background-dark is-hidden-touch is-hidden-desktop-only' onClick={() => setModalOpen(true)}>BOOK YOUR ONLINE CONSULATION!</a>
+                            <a className='consultation is-block has-background-dark is-hidden-touch is-hidden-widescreen' onClick={() => setModalOpen(true)}>ONLINE CONSULTATION!</a>
+                            <a className='consultation is-block has-background-dark is-hidden-touch is-hidden-desktop-only' onClick={() => setModalOpen(true)}>BOOK YOUR ONLINE CONSULTATION!</a>
                         </div>
                     </div>
                     <div className="navbar-end">
@@ -146,7 +146,7 @@ export default function NavBar() {
                         <NavLink title="Services" href="/our-services" currentPath={path} hideFunction={hide} />
                         <NavLink title="Information" href="/information" currentPath={path} includesHref={true} hideFunction={hide} />
                         <NavLink title="Testimonials" href="/testimonials" currentPath={path} hideFunction={hide} />
-                        <NavLink title="Relocation stories" href="/stories" currentPath={path} includesHref={true} hideFunction={hide} />
+                        <NavLink title="Relocation Stories" href="/stories" currentPath={path} includesHref={true} hideFunction={hide} />
                         <NavLink title="Contact" href="/contact" currentPath={path} hideFunction={hide} />
                     </div>
                 </div>

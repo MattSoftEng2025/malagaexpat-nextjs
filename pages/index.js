@@ -87,16 +87,18 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
                     </div>
                 </div>
             </div>
-            <section className='stories py-6 has-background-light'>
+            <section className='section py-6 has-background-light'>
                 <div className='container'>
-                    <h3 className="heading is-size-5 mb-5 has-text-centered">Relocation stories</h3>
+                    <h3 className="heading is-size-3 mb-5 has-text-centered">Relocation stories</h3>
                     {latestStoryData.latest.map(story =>
                         <div className='columns is-centered' key={story.title}>
-                            <div className='content is-large column is-6'>
-                                <span className='is-heading is-size-7'>{postedOrLastUpdatedText(story.lastUpdated, story.publishDate)}</span>
-                                <h4 className='mb-2'>{story.title}</h4>
-                                <p>{story.snippet}</p>
-                                <Link href={`/story/${story.permalink}`} className="ml-auto m-3 button is-primary is-dark">Read more ⟶</Link>
+                            <div className='column is-half'>
+                                <div className='content is-large'>
+                                    <span className='is-heading is-size-7'>{postedOrLastUpdatedText(story.lastUpdated, story.publishDate)}</span>
+                                    <h4 className='mb-2'>{story.title}</h4>
+                                    <p>{story.snippet}</p>
+                                    <Link href={`/story/${story.permalink}`} className="ml-auto m-3 button is-primary is-dark">Read more ⟶</Link>
+                                </div>
                             </div>
                         </div>)
                     }

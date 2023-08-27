@@ -1,6 +1,7 @@
-import { postedOrLastUpdatedText } from '../../utils/helpers';
-import Link from 'next/link';
-import API from '../../utils/API';
+import { postedOrLastUpdatedText } from '../../utils/helpers'
+import Link from 'next/link'
+import Head from 'next/head';
+import API from '../../utils/API'
 
 export async function getStaticPaths() {
     const permalinks = await API.getJson('/stories/paths');
@@ -29,32 +30,38 @@ export async function getStaticProps({ params }) {
 
 export default function StoryDetail({ story }) {
     return (
-        <main>
-            <div className="hero is-primary">
-                <div className="hero-body">
+        <>
+            <Head>
+                <title>{story.title}</title>
+                <meta name="description" content={story.snippet} />
+            </Head>
+            <main>
+                <div className="hero is-primary">
+                    <div className="hero-body">
+                        <div className="container">
+                            <div className="columns is-centered">
+                                <div className="column is-7-desktop">
+                                    <small className='heading'>Relocation story</small>
+                                    <h1 className="title is-size-2">{story.title}</h1>
+                                    <p className="subtitle is-size-5">{postedOrLastUpdatedText(story.lastUpdated, story.publishDate)}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section className="section">
                     <div className="container">
                         <div className="columns is-centered">
                             <div className="column is-7-desktop">
-                                <small className='heading'>Relocation story</small>
-                                <h1 className="title is-size-2">{story.title}</h1>
-                                <p className="subtitle is-size-5">{postedOrLastUpdatedText(story.lastUpdated, story.publishDate)}</p>
+                                <div className="content is-medium">
+                                    <article dangerouslySetInnerHTML={{ __html: story.content }}></article>
+                                    <Link href="/stories" className='button mt-5'>⟵ Back to relocation stories</Link>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <section className="section">
-                <div className="container">
-                    <div className="columns is-centered">
-                        <div className="column is-7-desktop">
-                            <div className="content is-medium">
-                                <article dangerouslySetInnerHTML={{ __html: story.content }}></article>
-                                <Link href="/stories" className='button mt-5'>⟵ Back to relocation stories</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
+        </>
     )
 }
