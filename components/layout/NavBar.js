@@ -116,7 +116,6 @@ export default function NavBar() {
     const [modalOpen, setModalOpen] = useState(false)
     const hide = () => setOpen(false)
     const router = useRouter()
-    const isHomepage = router.pathname === '/';
     const path = router.pathname;
 
     return (
@@ -151,7 +150,7 @@ export default function NavBar() {
                 </div>
             </nav>
             {!modalOpen && !open && <div className='is-hidden-tablet has-background-dark p-2 has-text-centered' style={{ position: 'fixed', left: 0, right: 0, top: '3rem', zIndex: 100 }}>
-                <a className='consultation is-block' onClick={() => setModalOpen(true)}>BOOK YOUR PERSONAL ONLINE CONSULATION!</a>
+                <a className='consultation is-block' onClick={() => setModalOpen(true)}>BOOK YOUR PERSONAL ONLINE CONSULTATION!</a>
             </div>}
             <Modal modalOpen={modalOpen} setModalOpen={setModalOpen} />
         </>
