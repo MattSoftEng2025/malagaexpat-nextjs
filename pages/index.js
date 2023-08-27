@@ -89,6 +89,7 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
             </div>
             <section className='stories py-6 has-background-light'>
                 <div className='container'>
+                    <h3 className="heading is-size-5 mb-5 has-text-centered">Relocation stories</h3>
                     {latestStoryData.latest.map(story =>
                         <div className='columns is-centered' key={story.title}>
                             <div className='content is-large column is-6'>
