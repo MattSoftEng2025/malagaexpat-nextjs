@@ -141,7 +141,6 @@ export default function NavBar() {
                         </div>
                     </div>
                     <div className="navbar-end">
-                        {!isHomepage && <NavLink title="Home" href="/" currentPath={path} hideFunction={hide} />}
                         <NavLink title="About" href="/about" currentPath={path} hideFunction={hide} />
                         <NavLink title="Services" href="/our-services" currentPath={path} hideFunction={hide} />
                         <NavLink title="Information" href="/information" currentPath={path} includesHref={true} hideFunction={hide} />
