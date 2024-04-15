@@ -83,7 +83,7 @@ export default function RelocationServices({ page }) {
                                             <li className='is-size-7'>*All prices are subject to IVA (21%) and only include Malaga Expat Consulting fees. Third party admin fees, as well as costs of translations (where required) and private health insurances premiums are NOT included in the above package and are charged separately.</li>
                                             <li className='is-size-7'>*Packages may include ALL or just SOME of the procedures listed, depending on each individual needs and requirements.</li>
                                             <li className='is-size-7'>*We can also assist non-EU citizens with all above, the prices will vary depending on paperwork requirements in each individual case and are to be quoted separately.</li>
-                                            <li className='is-size-7'>*Property purchase assistance is NOT included and is agreed on the individual basis.</li>
+                                            <li className='is-size-7'>*Property search service is NOT included and is agreed on the individual basis.</li>
                                         </ul>
                                     </div>
                                 </div>
