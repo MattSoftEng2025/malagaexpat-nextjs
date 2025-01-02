@@ -56,7 +56,7 @@ function Modal({ modalOpen, setModalOpen }) {
                         </div></div>}
                     {!sent && !failed && <div className="content">
                         <p>Book your personal ONLINE consultation to answer any of your questions about relocation to Spain, immigration procedures, paperwork requirements and general advice.</p>
-                        <p>The price is <b>50€</b> (plus VAT) which is fully deductible from any future relocation packages contracted through Malaga Expat Consulting.</p>
+                        <p>The price is <b>60€</b> (plus VAT) which is fully deductible from any future relocation packages contracted through Malaga Expat Consulting.</p>
                         <div className="field">
                             <label className="label">Your name</label>
                             <div className="control">
