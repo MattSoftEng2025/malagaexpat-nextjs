@@ -14,6 +14,7 @@
         "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
         "bulma": "^0.9.3",
         "fathom-client": "^3.5.0",
+        "marked": "^15.0.8",
         "next": "^13.1.5",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
