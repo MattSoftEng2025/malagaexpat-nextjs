@@ -117,7 +117,7 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
                             <li>Full Relocation Packages tailored to your needs</li>
                             <li>One-on-one consultations and trusted referrals to legal, tax, and other professionals</li>
                         </ul>
-                        <p>Whether you're just getting started or already on the ground in Spain, we can support you at any stage of the process.</p>
+                        <p>Whether you&apos;re just getting started or already on the ground in Spain, we can support you at any stage of the process.</p>
                     </div>
                     <div className="is-flex">
                         <Link className='button my-6 is-black is-large mx-auto' href='/our-services'>Our services</Link>
@@ -153,7 +153,7 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
             <section className='section py-6 has-background-primary'>
                 <div className='container content is-large'>
                     <h3 className='has-text-centered'>Start Your Spanish Life the Right Way</h3>
-                    <p>Whether you're navigating the Spanish bureaucracy, finding your new home, or just figuring out where to begin—we&apos;re here to help. We take the unnecessary stress and confusion out of relocation, so you can focus on enjoying the lifestyle that brought you to Spain in the first place.</p>
+                    <p>Whether you&apos;re navigating the Spanish bureaucracy, finding your new home, or just figuring out where to begin—we&apos;re here to help. We take the unnecessary stress and confusion out of relocation, so you can focus on enjoying the lifestyle that brought you to Spain in the first place.</p>
                     <p>Get in touch today to schedule a consultation and see how we can support your move to Malaga or anywhere in Spain.</p>
                     <p>Let&apos;s make your relocation smooth, successful, and as stress-free as possible</p>
                 </div>
