@@ -15,8 +15,8 @@ export default function RelocationServices({ page }) {
     return (
         <>
             <Head>
-                <title>{page.metaTitle}</title>
-                <meta name="description" content={page.metaDescription} />
+                <title>Securing your paperwork and property needs in Malaga and Spain</title>
+                <meta name="description" content='A customised relocation package with Malaga Expat will address all aspects of your move to Spain' />
             </Head>
             <main>
                 <div className="hero is-primary">
@@ -24,8 +24,8 @@ export default function RelocationServices({ page }) {
                         <div className="container">
                             <div className="columns is-centered">
                                 <div className="column is-7-desktop">
-                                    <h1 className="title is-1 has-text-centered">{page.title}</h1>
-                                    <p className="subtitle is-4">If you wish to be sure all aspects of your relocation to Spain are covered, you might be interested in the relocation packages with Malaga Expat Consulting addressed at securing the paperwork and/or property requirements for you and your family. </p>
+                                    <h1 className="title is-1 has-text-centered">Relocation Packages for a Smooth Move to Spain</h1>
+                                    <p className="subtitle is-4">If you want peace of mind knowing that every aspect of your relocation is professionally handled, our customised relocation packages are designed just for you. Whether you&apos;re moving alone, with a partner, or as a family, we offer flexible solutions that focus on what matters most: getting your paperwork and property matters sorted—efficiently and correctly.</p>
                                 </div>
                             </div>
                         </div>
@@ -36,9 +36,8 @@ export default function RelocationServices({ page }) {
                         <div className="columns is-centered">
                             <div className="column is-7-desktop">
                                 <div className="content is-medium">
-                                    <p>Bureaucracy is a minefield in every country, and with no knowledge of language and local practices, the paperwork can turn into a real nightmare. This is when you can benefit from our experience and local knowledge. Based on the years of work with many expats like yourself, we have created the service packages addressed to cover the most important paperwork aspects of your relocation.</p>
-                                    <p>Our packages clearly distinguish between paperwork and property search assistance, as although those two parts come hand in hand, the Paperwork part is where most assistance is required, while the Property Search part is very often a more personal matter. Malaga Expat Consulting will gladly assist you with all elements of your relocation and will always try to customize the package to your personal needs.</p>
-                                    <p>Below are the examples of the standard packages addressed at individuals, couples and families:</p>
+                                    <p>Spanish bureaucracy can be complex and overwhelming, especially if you&apos;re unfamiliar with the language and local systems. But with our experience and in-depth local knowledge, you don&apos;t have to navigate it alone. We&apos;ve helped many expats successfully transition to life in Spain, and we&apos;ve created service packages based on real needs, real questions, and real challenges that newcomers face every day.</p>
+                                    <p>We offer two core types of relocation support, with the option to tailor each to your specific situation:</p>
                                 </div>
                             </div>
                         </div>
@@ -51,17 +50,21 @@ export default function RelocationServices({ page }) {
                                 <div className="message">
                                     <div className="message-header">Paperwork Package</div>
                                     <div className="message-body content">
-                                        <p>Includes assistance with the following procedures:</p>
+                                        <p>This package focuses on the most essential—and often the most overwhelming—part of moving to Spain: the administrative side. Whether you&apos;re applying for a visa, registering with the local authorities, or sorting out your residency paperwork, we&apos;re here to guide you every step of the way</p>
+                                        <p>Services typically include:</p>
                                         <ul>
-                                            <li>Opening a bank account</li>
-                                            <li>Applying for NIE</li>
-                                            <li>Applying for Residence (Certificado de Registro)</li>
-                                            <li>Registration in the local Town Hall (padron)</li>
-                                            <li>Obtaining Social Security number</li>
-                                            <li>Introduction to insurance companies for private health insurance quotes</li>
-                                            <li>Registration for local schools (only for Family Packages)</li>
-                                            <li>General advice</li>
+                                            <li>Visa & residency applications</li>
+                                            <li>NIE/TIE assistance</li>
+                                            <li>Town Hall registration (padrón)</li>
+                                            <li>School enrolment support (for families)</li>
+                                            <li>Social Security number</li>
+                                            <li>Digital certificate setup</li>
+                                            <li>And more, depending on your personal situation</li>
                                         </ul>
+                                        <p>Each package is individually tailored based on your needs, and we provide a personalised quote following a detailed consultation.</p>
+                                        <div>
+                                            <button className='button is-primary'>Book a consultation</button>
+                                        </div>
                                         <h3 className="has-text-centered title is-4">Prices for EU Citizens*</h3>
                                         <table>
                                             <tbody>
@@ -92,9 +95,24 @@ export default function RelocationServices({ page }) {
                                 <div className="message">
                                     <div className="message-header">Paperwork and Property Package</div>
                                     <div className="message-body content">
-                                        <p>Includes all of the <em>Paperwork Package</em> as well as assistance with property search, whether it is to rent or to buy. We appreciate that property is a very personal matter, however by involving our professional services you will benefit greatly from our knowledge of local areas, the language, negotiation practices and local laws.  We do not limit our collaboration network by working with “the exclusive few agents”, nor are we paid by any agents! We work solely for you, our clients, we represent only your interests and we research the whole market to choose from the broadest range of properties from different agents and owners, with no links attached to anyone. Read more about our <Link href="/information/bespoke-property-finder-service-in-malaga">property finder service here</Link>.</p>
-                                        <p>We find it difficult to quote a standard service fee for the property search, as each individual case is very different, starting from client&apos;s expectations of the level of our involvement and service, to the area the property is in, and other requirements. Furthermore, our experience from working with different clients so far, has shown that it is impossible and would be unfair to quote a standard fee, as the process, time and work involved can vary greatly.</p>
-                                        <p>Therefore, in case of the property search assistance, we offer a different approach - we charge the client based on the actual work and time involved, without any minimum or maximum requirements, limitations on the number of properties or the time involved, nor on the level of service provided. You, the Client, decide, how much and how long you wish us to be involved, and at which extent. We find it a much more transparent, flexible, and fair approach, than asking a client to commit to a package which would incur certain limitations in the level or the quality of the services provided. Please get in touch with us to discuss in more detail your requirements and the costs involved.</p>
+                                        <p>If you&apos;d also like help with finding a home, this comprehensive package combines administrative assistance with full property search support.</p>
+                                        <p>We understand that choosing a property is a deeply personal decision, but professional guidance can save time, avoid mistakes, and open doors to options you might not find on your own. </p>
+                                        <h4>What makes our property service different?</h4>
+                                        <ul>
+                                            <li>We work independently—we are not tied to any agents and receive no commission</li>
+                                            <li>We represent only your interests</li>
+                                            <li>We provide local insights, language support, and negotiation advice</li>
+                                            <li>We help with shortlisting, scheduling viewings, and reviewing rental contracts</li>
+                                            <li>Our property service is charged based on time and involvement—no flat fees, no surprises</li>
+                                            <li>We adapt our level of involvement based on what you need</li>
+                                        </ul>
+                                        <p><Link href='/information/bespoke-property-finder-service-in-malaga'>Read about our Bespoke Property Finding Service</Link></p>
+                                        <h4>Our Focus Area</h4>
+                                        <p>As our name suggests, we specialise in Malaga and the surrounding Costa del Sol region. We believe in the value of true local knowledge—something that simply cannot be replicated remotely, especially when it comes to assistance in property search.</p>
+                                        <p>That said, lots of administration support and especially Spanish Visas applications can be handled remotely, so even if you are relocating to another region and can benefit from our knowledge and expertise, we&apos;ll gladly accommodate that too.</p>
+                                        <h4>Our Focus Area</h4>
+                                        <p>Every relocation is different, and we&apos;re happy to discuss your situation and recommend the best path forward. If you&apos;re unsure about what level of support you need—or simply want to better understand how we can help—feel free to reach out.</p>
+                                        <p><Link href='contact'>Contact us today</Link> to book a consultation and start building a relocation plan that truly fits you.</p>
                                     </div>
                                 </div>
                             </div>
