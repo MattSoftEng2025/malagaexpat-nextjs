@@ -73,23 +73,11 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
                     </div>
                 </div>
             </section>
-            <div className="columns is-multiline m-0">
-                <div className="column is-12-tablet is-6-desktop p-0">
-                    <article className="content p-6">
-                        <h4 className='title is-3'>Why So Many People Choose Spain</h4>
-                        <div dangerouslySetInnerHTML={{ __html: marked(text.chooseSpain) }}></div>
-                    </article>
-                </div>
-                <div className="column is-12-tablet is-6-desktop p-0">
-                    <div className="is-flex is-justify-content-center" style={{ height: '100%', backgroundImage: 'url(andalusia-1.jpeg)', backgroundPosition: 'top', backgroundSize: 'cover' }}>
-                        <div className="content is-medium">
-                            <blockquote className="mx-6 mt-6 has-background-primary has-text-centered is-large p-4">Our aim is to provide to all expats living in or relocating to the area of Malaga and the Costa del Sol competent help and assistance with all affairs, no matter how big or small, in a friendly and professional manner at a competitive price.</blockquote>
-                            <div className="is-flex">
-                                <Link href="/contact" className="button mb-6 is-black is-large mx-auto">Contact Malaga Expat ⟶</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className='container'>
+                <article className="content p-6">
+                    <h4 className='title is-3'>Why So Many People Choose Spain</h4>
+                    <div dangerouslySetInnerHTML={{ __html: marked(text.chooseSpain) }}></div>
+                </article>
             </div>
             <section className='section py-6'>
                 <div className='container'>
@@ -99,7 +87,7 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
                     <h3 className="heading is-size-3 mb-5 has-text-centered">Meet Irina Saltmarsh, Founder of Malaga Expat Consulting</h3>
                     <div dangerouslySetInnerHTML={{ __html: marked(text.meetIrina) }}></div>
                     <div className="is-flex">
-                        <Link className='button my-6 is-black is-large mx-auto' href='/about'>About Malage Expat</Link>
+                        <Link className='button my-6 is-black is-large mx-auto' href='/about'>About Malaga Expat</Link>
                     </div>
                 </div>
             </section>

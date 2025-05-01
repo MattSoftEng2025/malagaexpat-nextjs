@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import API from '../utils/API'
+import { useContext } from 'react'
+import { ModalContext } from '../components/contexts/ModalContext'
 
 export async function getStaticProps() {
     const page = await API.getJson(`/pages/relocation-packages`)
@@ -12,6 +14,8 @@ export async function getStaticProps() {
 }
 
 export default function RelocationServices({ page }) {
+    const { modalOpen, setModalOpen } = useContext(ModalContext)
+
     return (
         <>
             <Head>
@@ -62,32 +66,6 @@ export default function RelocationServices({ page }) {
                                             <li>And more, depending on your personal situation</li>
                                         </ul>
                                         <p>Each package is individually tailored based on your needs, and we provide a personalised quote following a detailed consultation.</p>
-                                        <div>
-                                            <button className='button is-primary'>Book a consultation</button>
-                                        </div>
-                                        <h3 className="has-text-centered title is-4">Prices for EU Citizens*</h3>
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <th>Individual</th>
-                                                    <td>350&euro;</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Couple</th>
-                                                    <td>490&euro;</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Family (2 adults/2 children)</th>
-                                                    <td>770&euro;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <ul style={{ listStyle: 'none' }} className="pr-4">
-                                            <li className='is-size-7'>*All prices are subject to IVA (21%) and only include Malaga Expat Consulting fees. Police and other admin fees, as well as costs of translations (where required) and private health insurances premiums are not included in the above fees.</li>
-                                            <li className='is-size-7'>*Individual packages may include ALL or just SOME of the procedures listed, depending on each individual needs and requirements.</li>
-                                            <li className='is-size-7'>*We can also assist non-EU citizens with all above, the prices may vary slightly depending on paperwork requirements in each individual case, and are to be quoted separately.</li>
-                                            <li className='is-size-7'>*Property purchase assistance is agreed on the individual basis.</li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -118,8 +96,11 @@ export default function RelocationServices({ page }) {
                             </div>
                         </div>
                     </div>
+                    <div className="is-flex is-justify-content-center my-6">
+                        <button className='button is-dark is-large' onClick={() => setModalOpen(!modalOpen)}>Book a consultation</button>
+                    </div>
                 </section>
-                <section className="section">
+                {/* <section className="section">
                     <div className="container">
                         <div className="columns is-centered">
                             <div className="column is-7">
@@ -131,7 +112,8 @@ export default function RelocationServices({ page }) {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
             </main>
-        </>)
+        </>
+    )
 }

@@ -61,10 +61,10 @@ export default function OurServices({ randomTestimonials }) {
                 </div>
             </section>
 
-            <section className='section'>
+            <section className='section has-background-dark has-text-white'>
                 <div className='container content is-medium'>
-                    <h4>Property Support</h4>
-                    <p>Finding a home in Spain can be overwhelming. W&apos;re here to make it easier with:</p>
+                    <h4 className='has-text-white'>Property Support</h4>
+                    <p>Finding a home in Spain can be overwhelming. We&apos;re here to make it easier with:</p>
                     <ul>
                         <li><Link href='/information/bespoke-property-finder-service-in-malaga'>Personalised property search assistance.</Link></li>
                         <li>Contract review & guidance for rental agreements</li>
@@ -81,9 +81,9 @@ export default function OurServices({ randomTestimonials }) {
                 </div>
             </section>
 
-            <section className='section'>
+            <section className='section has-background-dark has-text-white'>
                 <div className='container content is-medium'>
-                    <h4>Full Relocation Packages</h4>
+                    <h4 className='has-text-white'>Full Relocation Packages</h4>
                     <p>We offer comprehensive relocation packages tailored to your individual circumstances. These may include a combination of:</p>
                     <ul>
                         <li>Immigration paperwork</li>
@@ -110,9 +110,9 @@ export default function OurServices({ randomTestimonials }) {
             </section>
 
 
-            <section className='section'>
+            <section className='section has-background-dark has-text-white'>
                 <div className='container content is-medium'>
-                    <h4>Trusted Referrals</h4>
+                    <h4 className='has-text-white'>Trusted Referrals</h4>
                     <p>We&apos;ve built a strong network of trusted professionals across the Costa del Sol. When needed, we can connect you with:</p>
                     <ul>
                         <li>Tax advisors & accountants</li>

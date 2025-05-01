@@ -1,6 +1,8 @@
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext, useContext } from 'react'
 import { useRouter } from 'next/router'
+import { ModalContext } from '../contexts/ModalContext'
+
 
 function Modal({ modalOpen, setModalOpen }) {
     const [name, setName] = useState('')
@@ -56,7 +58,7 @@ function Modal({ modalOpen, setModalOpen }) {
                         </div></div>}
                     {!sent && !failed && <div className="content">
                         <p>Book your personal consultation now to answer any of your questions related to relocation to Spain, paperwork requirements and procedures as well as general advice.</p>
-                        <p>The price is <b>50€</b> (plus VAT) which is fully deductible from any further agreed fees. The consultation can take place on the phone, WhatsApp, Skype or in person.</p>
+                        <p>The price is <b>60</b> (plus VAT) which is fully deductible from any further agreed fees. The consultation can take place on the phone, WhatsApp, Skype or in person.</p>
                         <div className="field">
                             <label className="label">Your name</label>
                             <div className="control">
@@ -113,10 +115,11 @@ const NavLink = ({ currentPath, title, href, includesHref = false, hideFunction 
 
 export default function NavBar() {
     const [open, setOpen] = useState(false)
-    const [modalOpen, setModalOpen] = useState(false)
     const hide = () => setOpen(false)
     const router = useRouter()
     const path = router.pathname;
+
+    const { modalOpen, setModalOpen } = useContext(ModalContext)
 
     return (
         <>
