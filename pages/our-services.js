@@ -27,11 +27,11 @@ export default function OurServices({ randomTestimonials }) {
                         <div className="columns is-centered">
                             <div className="column is-7">
                                 <h1 className="title is-size-1 has-text-centered">
-                                    Relocation Services in Malaga & Spain
+                                    Relocation Services in <br />Malaga & Spain
                                 </h1>
                                 <p className="subtitle is-size-4">Relocating to a new country is a major life event and while relocation to Spain can be exciting, but it is also complex. That’s where we come in. With years of experience and hundreds of successful relocations under our belt, we provide expert, end-to-end support to help you move with confidence and ease.</p>
                                 <div className="is-flex is-justify-content-center is-align-items-center p-6">
-                                    <img src="/irina-profile-new-may-2025.jpg" alt="Irina Saltmarsh" style={{ borderRadius: '50%', maxHeight: '15rem' }} />
+                                    <img src="/irina-profile-new-may-2025.jpg" alt="Irina Saltmarsh" style={{ borderRadius: '50%', maxWidth: '17rem' }} />
                                 </div>
                             </div>
                         </div>
@@ -39,10 +39,9 @@ export default function OurServices({ randomTestimonials }) {
                 </div>
             </section>
 
-
-            <section className='section'>
+            <section className='section has-background-dark has-text-white'>
                 <div className='container content is-medium'>
-                    <h4>Immigration & Paperwork Assistance</h4>
+                    <h4 className='has-text-white'>Immigration & Paperwork Assistance</h4>
                     <p>We help you navigate Spain&apos;s bureaucratic landscape with confidence, offering full support for:</p>
                     <ul>
                         <li>NIE & TIE applications</li>
@@ -58,31 +57,19 @@ export default function OurServices({ randomTestimonials }) {
                         <li>Social Security number applications</li>
                         <li>Digital certificate setup</li>
                     </ul>
-                </div>
-            </section>
-
-            <section className='section has-background-dark has-text-white'>
-                <div className='container content is-medium'>
+                    <hr />
                     <h4 className='has-text-white'>Property Support</h4>
                     <p>Finding a home in Spain can be overwhelming. We&apos;re here to make it easier with:</p>
                     <ul>
-                        <li><Link href='/information/bespoke-property-finder-service-in-malaga'>Personalised property search assistance.</Link></li>
+                        <li><Link className='has-text-primary' href='/information/bespoke-property-finder-service-in-malaga'>Personalised property search assistance.</Link></li>
                         <li>Contract review & guidance for rental agreements</li>
                         <li>Tourist license applications for short-term rentals</li>
                     </ul>
-                </div>
-            </section>
-
-            <section className='section'>
-                <div className='container content is-medium'>
-                    <h4>Private Health Insurance</h4>
+                    <hr />
+                    <h4 className='has-text-white'>Private Health Insurance</h4>
                     <p>As an exclusive agent of Spain&apos;s most reliable insurance provider <b>Sanitas</b>, we offer a variety of health insurance options to meet your visa or personal needs.</p>
-                    <Link href='/arranging-private-health-insurance-cover'>Arranging private health insurance cover</Link>
-                </div>
-            </section>
-
-            <section className='section has-background-dark has-text-white'>
-                <div className='container content is-medium'>
+                    <Link className='button is-primary' href='/arranging-private-health-insurance-cover'>Arranging private health insurance cover</Link>
+                    <hr />
                     <h4 className='has-text-white'>Full Relocation Packages</h4>
                     <p>We offer comprehensive relocation packages tailored to your individual circumstances. These may include a combination of:</p>
                     <ul>
@@ -92,13 +79,9 @@ export default function OurServices({ randomTestimonials }) {
                         <li>Admin tasks and more</li>
                     </ul>
                     <p>Each package is designed with your specific timeline, preferences, and priorities in mind.</p>
-                    <p><Link href='/relocation-packages'>Relocation packages</Link></p>
-                </div>
-            </section>
-
-            <section className='section'>
-                <div className='container content is-medium'>
-                    <h4>One-on-One Consultations</h4>
+                    <p><Link className='button is-primary' href='/relocation-packages'>Relocation packages</Link></p>
+                    <hr />
+                    <h4 className='has-text-white'>One-on-One Consultations</h4>
                     <p>Need guidance on a specific issue? We offer personalised consultations to help you understand:</p>
                     <ul>
                         <li>Visa options & application strategy</li>
@@ -106,12 +89,8 @@ export default function OurServices({ randomTestimonials }) {
                         <li>Administrative requirements</li>
                         <li>Relocation planning and more</li>
                     </ul>
-                </div>
-            </section>
-
-
-            <section className='section has-background-dark has-text-white'>
-                <div className='container content is-medium'>
+                    <button className='button is-primary' onClick={() => setModalOpen(!modalOpen)}>Book a consultation</button>
+                    <hr />
                     <h4 className='has-text-white'>Trusted Referrals</h4>
                     <p>We&apos;ve built a strong network of trusted professionals across the Costa del Sol. When needed, we can connect you with:</p>
                     <ul>

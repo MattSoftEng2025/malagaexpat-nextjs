@@ -29,7 +29,6 @@ export default function RelocationServices({ page }) {
                             <div className="columns is-centered">
                                 <div className="column is-7-desktop">
                                     <h1 className="title is-1 has-text-centered">Relocation Packages for a Smooth Move to Spain</h1>
-                                    <p className="subtitle is-4">If you want peace of mind knowing that every aspect of your relocation is professionally handled, our customised relocation packages are designed just for you. Whether you&apos;re moving alone, with a partner, or as a family, we offer flexible solutions that focus on what matters most: getting your paperwork and property matters sorted—efficiently and correctly.</p>
                                 </div>
                             </div>
                         </div>
@@ -40,6 +39,8 @@ export default function RelocationServices({ page }) {
                         <div className="columns is-centered">
                             <div className="column is-7-desktop">
                                 <div className="content is-medium">
+                                    <p>If you want peace of mind knowing that every aspect of your relocation is professionally handled, our customised relocation packages are designed just for you. Whether you&apos;re moving alone, with a partner, or as a family, we offer flexible solutions that focus on what matters most: getting your paperwork and property matters sorted—efficiently and correctly.</p>
+
                                     <p>Spanish bureaucracy can be complex and overwhelming, especially if you&apos;re unfamiliar with the language and local systems. But with our experience and in-depth local knowledge, you don&apos;t have to navigate it alone. We&apos;ve helped many expats successfully transition to life in Spain, and we&apos;ve created service packages based on real needs, real questions, and real challenges that newcomers face every day.</p>
                                     <p>We offer two core types of relocation support, with the option to tailor each to your specific situation:</p>
                                 </div>
@@ -49,8 +50,9 @@ export default function RelocationServices({ page }) {
                 </section>
                 <section className="section has-background-primary">
                     <div className="container">
-                        <div className="columns is-multiline">
-                            <div className="column is-6-desktop">
+                        <div className='columns is-centered'>
+                            <div className='column is-12-tablet is-7-desktop'>
+
                                 <div className="message">
                                     <div className="message-header">Paperwork Package</div>
                                     <div className="message-body content">
@@ -68,10 +70,8 @@ export default function RelocationServices({ page }) {
                                         <p>Each package is individually tailored based on your needs, and we provide a personalised quote following a detailed consultation.</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="column is-6-desktop">
                                 <div className="message">
-                                    <div className="message-header">Paperwork and Property Package</div>
+                                    <div className="message-header has-text-centred">Paperwork and Property Package</div>
                                     <div className="message-body content">
                                         <p>If you&apos;d also like help with finding a home, this comprehensive package combines administrative assistance with full property search support.</p>
                                         <p>We understand that choosing a property is a deeply personal decision, but professional guidance can save time, avoid mistakes, and open doors to options you might not find on your own. </p>
@@ -88,16 +88,16 @@ export default function RelocationServices({ page }) {
                                         <h4>Our Focus Area</h4>
                                         <p>As our name suggests, we specialise in Malaga and the surrounding Costa del Sol region. We believe in the value of true local knowledge—something that simply cannot be replicated remotely, especially when it comes to assistance in property search.</p>
                                         <p>That said, lots of administration support and especially Spanish Visas applications can be handled remotely, so even if you are relocating to another region and can benefit from our knowledge and expertise, we&apos;ll gladly accommodate that too.</p>
-                                        <h4>Our Focus Area</h4>
+                                        <h4>Not sure what is right for You?</h4>
                                         <p>Every relocation is different, and we&apos;re happy to discuss your situation and recommend the best path forward. If you&apos;re unsure about what level of support you need—or simply want to better understand how we can help—feel free to reach out.</p>
                                         <p><Link href='contact'>Contact us today</Link> to book a consultation and start building a relocation plan that truly fits you.</p>
                                     </div>
                                 </div>
+                                <div className="is-flex is-justify-content-center my-6">
+                                    <button className='button is-dark is-large' onClick={() => setModalOpen(!modalOpen)}>Book a consultation</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="is-flex is-justify-content-center my-6">
-                        <button className='button is-dark is-large' onClick={() => setModalOpen(!modalOpen)}>Book a consultation</button>
                     </div>
                 </section>
                 {/* <section className="section">

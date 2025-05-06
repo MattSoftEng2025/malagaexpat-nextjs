@@ -8,6 +8,9 @@ import InformationLinks from '../components/shared/InformationLinks';
 import { postedOrLastUpdatedText } from '../utils/helpers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { ModalContext } from '../components/contexts/ModalContext'
+import { useContext } from 'react';
+
 
 const text = {
     title: 'Relocation & Admin Support for Expats in Spain',
@@ -32,6 +35,8 @@ export async function getStaticProps() {
 }
 
 export default function Home({ informationLinks, featuredTestimonials, latestStoryData }) {
+    const { modalOpen, setModalOpen } = useContext(ModalContext)
+
     return (
         <>
             <Head>
@@ -73,28 +78,30 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
                     </div>
                 </div>
             </section>
-            <div className='container'>
-                <article className="content p-6">
-                    <h4 className='title is-3'>Why So Many People Choose Spain</h4>
-                    <div dangerouslySetInnerHTML={{ __html: marked(text.chooseSpain) }}></div>
-                </article>
-            </div>
             <section className='section py-6'>
                 <div className='container'>
                     <div className="is-flex is-justify-content-center is-align-items-center p-6">
-                        <img src="/irina-profile.jpg" alt="Irina Saltmarsh" style={{ borderRadius: '50%', maxWidth: '10rem' }} />
+                        <img src="/irina-profile-new-may-2025.jpg" alt="Irina Saltmarsh" style={{ borderRadius: '50%', maxWidth: '17rem' }} />
                     </div>
                     <h3 className="heading is-size-3 mb-5 has-text-centered">Meet Irina Saltmarsh, Founder of Malaga Expat Consulting</h3>
-                    <div dangerouslySetInnerHTML={{ __html: marked(text.meetIrina) }}></div>
+                    <div dangerouslySetInnerHTML={{ __html: marked(text.meetIrina) }} className='content is-medium'></div>
                     <div className="is-flex">
                         <Link className='button my-6 is-black is-large mx-auto' href='/about'>About Malaga Expat</Link>
                     </div>
                 </div>
             </section>
+            <section className='section py-6' style={{ height: '100%', backgroundImage: 'url("andalusia-1.jpeg")', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                <div className='container py-6 my-6'>
+                    <article className="content p-6 my-6" style={{ background: '#fff', opacity: '0.7', borderRadius: '1rem' }}>
+                        <h4 className='title is-3 has-text-centered'>Why So Many People Choose Spain</h4>
+                        <div dangerouslySetInnerHTML={{ __html: marked(text.chooseSpain) }} className='content is-medium'></div>
+                    </article>
+                </div>
+            </section>
             <section className='section py-6 has-background-dark has-text-white'>
                 <div className='container'>
                     <h3 className="heading is-size-3 mb-5 has-text-centered">What We Offer</h3>
-                    <div className='content'>
+                    <div className='content is-medium'>
                         <p>We provide a full range of relocation and administrative services to individuals, couples, and families, including:</p>
                         <ul>
                             <li>Visa and residency applications (NLV, DNV, EU residencies, and more)</li>
@@ -103,7 +110,7 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
                             <li>Property search assistance and rental contract reviews</li>
                             <li>Private health insurance from Spain&apos;s leading provider Sanitas</li>
                             <li>Full Relocation Packages tailored to your needs</li>
-                            <li>One-on-one consultations and trusted referrals to legal, tax, and other professionals</li>
+                            <li>One-on-one consultations and trusted referrals to legal, tax, and other professionals.</li>
                         </ul>
                         <p>Whether you&apos;re just getting started or already on the ground in Spain, we can support you at any stage of the process.</p>
                     </div>
@@ -113,47 +120,47 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
                 </div>
             </section>
             <section className='section py-6'>
-                <div className='container'>
+                <div className='container py-6'>
                     <h3 className="heading is-size-3 mb-5 has-text-centered">Local &amp; remote support</h3>
-                    <div className='content'>
+                    <div className='content is-medium'>
                         <p>Malaga Expat Consulting is <b>based in Malaga</b> and specialises in the <b>Costa del Sol</b> region, where we&apos;ve built strong local insight and a reliable professional network. For services like <b>property search assistance</b>, we work exclusively in this local area to ensure high-quality, on-the-ground support.</p>
                         <p>However, <b>many of our administrative services</b> - including <b>visa applications (such as DNVs and NLVs), residency permits, and other paperwork-related assistance</b> - can be handled <b>remotely across Spain</b>. This means that even if you&apos;re relocating to another region, you can still benefit from our professional guidance and experience.</p>
                     </div>
-                    <div className="is-flex">
-                        <Link className='button my-6 is-black is-large mx-auto' href='/our-services'>Our services</Link>
-                    </div>
-                </div>
-            </section>
-            <section className='section py-6 has-background-dark has-text-white'>
-                <div className='container content'>
-                    <h3 className="heading has-text-white is-size-3 mb-5 has-text-centered">Why Work With Us</h3>
-                    <div id="services">
-                        <ul>
-                            <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We combine professionalism with a personal touch</span></span></li>
-                            <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We&apos;re fully independent and act only in your best interest</span></span></li>
-                            <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We offer structured, very efficient, and transparent support</span></span></li>
-                            <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We understand the expat experience—because we&apos;ve lived it too</span></span></li>
-                            <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We&apos;re passionate about helping you feel at home</span></span></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section className='section py-6 has-background-primary'>
-                <div className='container content is-large'>
-                    <h3 className='has-text-centered'>Start Your Spanish Life the Right Way</h3>
-                    <p>Whether you&apos;re navigating the Spanish bureaucracy, finding your new home, or just figuring out where to begin—we&apos;re here to help. We take the unnecessary stress and confusion out of relocation, so you can focus on enjoying the lifestyle that brought you to Spain in the first place.</p>
-                    <p>Get in touch today to schedule a consultation and see how we can support your move to Malaga or anywhere in Spain.</p>
-                    <p>Let&apos;s make your relocation smooth, successful, and as stress-free as possible</p>
                 </div>
             </section>
 
+            <div className='columns is-multiline'>
+                <div className='column is-12-tablet is-6-widescreen has-background-dark has-text-white'>
+                    <div className='p-6 content'>
+                        <h3 className="has-text-white is-size-3 mb-5">Why Work With Us</h3>
+                        <div id="services">
+                            <ul>
+                                <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We combine professionalism with a personal touch</span></span></li>
+                                <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We&apos;re fully independent and act only in your best interest</span></span></li>
+                                <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We offer structured, very efficient, and transparent support</span></span></li>
+                                <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We understand the expat experience—because we&apos;ve lived it too</span></span></li>
+                                <li><span className='icon-text'><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span><span>We&apos;re passionate about helping you feel at home</span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='column is-12-tablet is-6-widescreen has-background-primary'>
+                    <div className='p-6 content'>
+                        <h3>Start Your Spanish Life the Right Way</h3>
+                        <p>Whether you&apos;re navigating the Spanish bureaucracy, finding your new home, or just figuring out where to begin—we&apos;re here to help. We take the unnecessary stress and confusion out of relocation, so you can focus on enjoying the lifestyle that brought you to Spain in the first place.</p>
+                        <p>Get in touch today to schedule a consultation and see how we can support your move to Malaga or anywhere in Spain.</p>
+                        <p>Let&apos;s make your relocation smooth, successful, and as stress-free as possible</p>
+                    </div>
+                </div>
+            </div>
             <section className='section py-6 has-background-light'>
                 <div className='container'>
                     <h3 className="heading is-size-3 mb-5 has-text-centered">Relocation stories</h3>
                     {latestStoryData.latest.map(story =>
                         <div className='columns is-centered' key={story.title}>
                             <div className='column is-half'>
-                                <div className='content is-large'>
+                                <div className='content is-medium'>
                                     <span className='is-heading is-size-7'>{postedOrLastUpdatedText(story.lastUpdated, story.publishDate)}</span>
                                     <h4 className='mb-2'>{story.title}</h4>
                                     <p>{story.snippet}</p>
