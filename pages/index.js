@@ -23,7 +23,7 @@ const text = {
 export async function getStaticProps() {
     const informationLinks = await API.getJson('/pages/information')
     const featuredTestimonials = await API.getJson('/testimonials/homepage')
-    const latestStoryData = await API.getJson('/stories?count=3')
+    const latestStoryData = await API.getJson('/stories?count=4')
 
     return {
         props: {
@@ -81,7 +81,7 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
             <section className='section py-6'>
                 <div className='container'>
                     <div className="is-flex is-justify-content-center is-align-items-center p-6">
-                        <img src="/irina-profile-new-may-2025.jpg" alt="Irina Saltmarsh" style={{ borderRadius: '50%', maxWidth: '17rem' }} />
+                        <img src="/irina-profile.jpg" alt="Irina Saltmarsh" style={{ borderRadius: '50%', maxWidth: '17rem' }} />
                     </div>
                     <h3 className="heading is-size-3 mb-5 has-text-centered">Meet Irina Saltmarsh, Founder of Malaga Expat Consulting</h3>
                     <div dangerouslySetInnerHTML={{ __html: marked(text.meetIrina) }} className='content is-medium'></div>
@@ -90,9 +90,9 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
                     </div>
                 </div>
             </section>
-            <section className='section py-6' style={{ height: '100%', backgroundImage: 'url("andalusia-1.jpeg")', backgroundPosition: 'center', backgroundSize: 'cover' }}>
-                <div className='container py-6 my-6'>
-                    <article className="content p-6 my-6" style={{ background: '#fff', opacity: '0.7', borderRadius: '1rem' }}>
+            <section className='section' style={{ height: '100%', backgroundImage: 'url("andalusia-1.jpeg")', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                <div className='container large-margin-top-desktop'>
+                    <article className="content p-6" style={{ background: '#fff', opacity: '0.7', borderRadius: '1rem' }}>
                         <h4 className='title is-3 has-text-centered'>Why So Many People Choose Spain</h4>
                         <div dangerouslySetInnerHTML={{ __html: marked(text.chooseSpain) }} className='content is-medium'></div>
                     </article>
@@ -157,18 +157,19 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
             <section className='section py-6 has-background-light'>
                 <div className='container'>
                     <h3 className="heading is-size-3 mb-5 has-text-centered">Relocation stories</h3>
-                    {latestStoryData.latest.map(story =>
-                        <div className='columns is-centered' key={story.title}>
-                            <div className='column is-half'>
-                                <div className='content is-medium'>
+                    <div className='columns is-multiline'>
+                        {latestStoryData.latest.map(story =>
+                            <div className='column is-6-desktop is-12-tablet' key={story.title}>
+                                <div className='content is-medium p-3'>
                                     <span className='is-heading is-size-7'>{postedOrLastUpdatedText(story.lastUpdated, story.publishDate)}</span>
                                     <h4 className='mb-2'>{story.title}</h4>
                                     <p>{story.snippet}</p>
                                     <Link href={`/story/${story.permalink}`} className="ml-auto m-3 button is-primary is-dark">Read more ⟶</Link>
                                 </div>
                             </div>
-                        </div>)
-                    }
+                        )
+                        }
+                    </div>
                     {latestStoryData.totalStories > 3 &&
                         <div className='is-flex'>
                             <Link href="/stories" className="my-6 mx-auto button is-dark">Read more relocation stories ⟶</Link>

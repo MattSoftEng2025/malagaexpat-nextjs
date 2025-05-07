@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCheckSquare, faHandshake, faSuitcaseRolling, faTruckMoving } from '@fortawesome/free-solid-svg-icons';
 
 export async function getStaticProps() {
-    const randomTestimonials = await API.getJson('/testimonials/random')
+    const randomTestimonials = await API.getJson('/testimonials/homepage')
     return {
         props: {
             randomTestimonials

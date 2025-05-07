@@ -154,3 +154,9 @@ footer {
         padding-top: 5.25rem !important;
     }
 }
+
+@media screen and (min-width:800px) {
+    .large-margin-top-desktop {
+        margin-top: 25rem;
+    }
+}
