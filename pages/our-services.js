@@ -4,6 +4,8 @@ import API from '../utils/API';
 import Testimonials from '../components/home/Testimonials'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCheckSquare, faHandshake, faSuitcaseRolling, faTruckMoving } from '@fortawesome/free-solid-svg-icons';
+import { ModalContext } from '../components/contexts/ModalContext'
+import { useContext } from 'react';
 
 export async function getStaticProps() {
     const randomTestimonials = await API.getJson('/testimonials/homepage')
@@ -15,6 +17,7 @@ export async function getStaticProps() {
 }
 
 export default function OurServices({ randomTestimonials }) {
+    const { modalOpen, setModalOpen } = useContext(ModalContext)
 
     return (
         <>
