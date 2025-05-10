@@ -42,38 +42,54 @@ export default function OurServices({ randomTestimonials }) {
                 </div>
             </section>
 
-            <section className='section has-background-dark has-text-white'>
+            <div className='columns mb-0 has-background-dark has-text-white'>
+                <div className='column is-6-desktop is-12-tablet'>
+                    <div className='content is-medium p-6'>
+                        <h4 className='has-text-white'>Immigration & Paperwork Assistance</h4>
+                        <p>We help you navigate Spain&apos;s bureaucratic landscape with confidence, offering full support for:</p>
+                        <ul>
+                            <li>NIE & TIE applications</li>
+                            <li>EU residency certificates (green NIE)</li>
+                            <li>Residency for non-EU family members of EU citizens</li>
+                            <li>Non-Lucrative Visas (NLVs) - new applications & renewals</li>
+                            <li>Digital Nomad Visas (DNVs) - new applications & renewals</li>
+                            <li>&ldquo;Brexit&rdquo; based residencies for UK citizens and renewals</li>
+                            <li>Permanent residency (EU and non-EU citizens)</li>
+                            <li>Spanish nationality through residency</li>
+                            <li>Town Hall (padrón) registration</li>
+                            <li>School enrolment for children</li>
+                            <li>Social Security number applications</li>
+                            <li>Digital certificate setup</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className='column is-6-desktop is-12-tablet'>
+                    <div className='content is-medium p-6'>
+                        <h4 className='has-text-white'>Property Support</h4>
+                        <p>Finding a home in Spain can be overwhelming. We&apos;re here to make it easier with:</p>
+                        <ul>
+                            <li><Link className='has-text-primary' href='/information/bespoke-property-finder-service-in-malaga'>Personalised property search assistance.</Link></li>
+                            <li>Contract review & guidance for rental agreements</li>
+                            <li>Tourist license applications for short-term rentals</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <section className='section'>
+                <div className='container'>
+                    <div className='content is-medium'>
+                        <h4>Private Health Insurance</h4>
+                        <p>As an exclusive agent of Spain&apos;s most reliable insurance provider <b>Sanitas</b>, we offer a variety of health insurance options to meet your visa or personal needs.</p>
+                        <Link className='button is-primary' href='/arranging-private-health-insurance-cover'>Arranging private health insurance cover</Link>
+                    </div>
+                </div>
+            </section>
+
+            <section className='section has-background-primary'>
                 <div className='container content is-medium'>
-                    <h4 className='has-text-white'>Immigration & Paperwork Assistance</h4>
-                    <p>We help you navigate Spain&apos;s bureaucratic landscape with confidence, offering full support for:</p>
-                    <ul>
-                        <li>NIE & TIE applications</li>
-                        <li>EU residency certificates (green NIE)</li>
-                        <li>Residency for non-EU family members of EU citizens</li>
-                        <li>Non-Lucrative Visas (NLVs) - new applications & renewals</li>
-                        <li>Digital Nomad Visas (DNVs) - new applications & renewals</li>
-                        <li>&ldquo;Brexit&rdquo; based residencies for UK citizens and renewals</li>
-                        <li>Permanent residency (EU and non-EU citizens)</li>
-                        <li>Spanish nationality through residency</li>
-                        <li>Town Hall (padrón) registration</li>
-                        <li>School enrolment for children</li>
-                        <li>Social Security number applications</li>
-                        <li>Digital certificate setup</li>
-                    </ul>
-                    <hr />
-                    <h4 className='has-text-white'>Property Support</h4>
-                    <p>Finding a home in Spain can be overwhelming. We&apos;re here to make it easier with:</p>
-                    <ul>
-                        <li><Link className='has-text-primary' href='/information/bespoke-property-finder-service-in-malaga'>Personalised property search assistance.</Link></li>
-                        <li>Contract review & guidance for rental agreements</li>
-                        <li>Tourist license applications for short-term rentals</li>
-                    </ul>
-                    <hr />
-                    <h4 className='has-text-white'>Private Health Insurance</h4>
-                    <p>As an exclusive agent of Spain&apos;s most reliable insurance provider <b>Sanitas</b>, we offer a variety of health insurance options to meet your visa or personal needs.</p>
-                    <Link className='button is-primary' href='/arranging-private-health-insurance-cover'>Arranging private health insurance cover</Link>
-                    <hr />
-                    <h4 className='has-text-white'>Full Relocation Packages</h4>
+                    <h4>Full Relocation Packages</h4>
                     <p>We offer comprehensive relocation packages tailored to your individual circumstances. These may include a combination of:</p>
                     <ul>
                         <li>Immigration paperwork</li>
@@ -83,25 +99,36 @@ export default function OurServices({ randomTestimonials }) {
                     </ul>
                     <p>Each package is designed with your specific timeline, preferences, and priorities in mind.</p>
                     <p><Link className='button is-primary' href='/relocation-packages'>Relocation packages</Link></p>
-                    <hr />
-                    <h4 className='has-text-white'>One-on-One Consultations</h4>
-                    <p>Need guidance on a specific issue? We offer personalised consultations to help you understand:</p>
-                    <ul>
-                        <li>Visa options & application strategy</li>
-                        <li>Property search tips</li>
-                        <li>Administrative requirements</li>
-                        <li>Relocation planning and more</li>
-                    </ul>
-                    <button className='button is-primary' onClick={() => setModalOpen(!modalOpen)}>Book a consultation</button>
-                    <hr />
-                    <h4 className='has-text-white'>Trusted Referrals</h4>
-                    <p>We&apos;ve built a strong network of trusted professionals across the Costa del Sol. When needed, we can connect you with:</p>
-                    <ul>
-                        <li>Tax advisors & accountants</li>
-                        <li>Financial consultants</li>
-                        <li>Legal professionals</li>
-                        <li>Car import & registration experts</li>
-                    </ul>
+                </div>
+            </section>
+
+            <section className='section'>
+                <div className='columns'>
+                    <div className='column is-6-desktop is-12-tablet'>
+                        <div className='content is-medium p-6'>
+                            <h4>One-on-One Consultations</h4>
+                            <p>Need guidance on a specific issue? We offer personalised consultations to help you understand:</p>
+                            <ul>
+                                <li>Visa options & application strategy</li>
+                                <li>Property search tips</li>
+                                <li>Administrative requirements</li>
+                                <li>Relocation planning and more</li>
+                            </ul>
+                            <button className='button is-primary' onClick={() => setModalOpen(!modalOpen)}>Book a consultation</button>
+                        </div>
+                    </div>
+                    <div className='column is-6-desktop is-12-tablet'>
+                        <div className='content is-medium p-6'>
+                            <h4>Trusted Referrals</h4>
+                            <p>We&apos;ve built a strong network of trusted professionals across the Costa del Sol. When needed, we can connect you with:</p>
+                            <ul>
+                                <li>Tax advisors & accountants</li>
+                                <li>Financial consultants</li>
+                                <li>Legal professionals</li>
+                                <li>Car import & registration experts</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
 

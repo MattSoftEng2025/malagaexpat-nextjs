@@ -119,8 +119,8 @@ export default function Home({ informationLinks, featuredTestimonials, latestSto
                     </div>
                 </div>
             </section>
-            <section className='section py-6 has-text-white' style={{ height: '100%', backgroundImage: 'url("sunset.jpg")', backgroundPosition: 'center', backgroundSize: 'cover' }}>
-                <div className='container py-6 medium-margin-desktop'>
+            <section className='section py-6'>
+                <div className='container py-6'>
                     <h3 className="heading is-size-3 mb-5 has-text-centered">Local &amp; remote support</h3>
                     <div className='content is-medium'>
                         <p>Malaga Expat Consulting is <b>based in Malaga</b> and specialises in the <b>Costa del Sol</b> region, where we&apos;ve built strong local insight and a reliable professional network. For services like <b>property search assistance</b>, we work exclusively in this local area to ensure high-quality, on-the-ground support.</p>
