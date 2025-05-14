@@ -72,22 +72,18 @@ export default function OurServices({ randomTestimonials }) {
                             <li>Contract review & guidance for rental agreements</li>
                             <li>Tourist license applications for short-term rentals</li>
                         </ul>
-
                     </div>
-                </div>
-            </div>
-
-            <section className='section'>
-                <div className='container'>
-                    <div className='content is-medium'>
-                        <h4>Private Health Insurance</h4>
+                    <div className='content is-medium p-6'>
+                        <h4 className='has-text-white'>Private Health Insurance</h4>
                         <p>As an exclusive agent of Spain&apos;s most reliable insurance provider <b>Sanitas</b>, we offer a variety of health insurance options to meet your visa or personal needs.</p>
                         <Link className='button is-primary' href='/arranging-private-health-insurance-cover'>Arranging private health insurance cover</Link>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section className='section has-background-primary'>
+
+
+            <section className='section' style={{ backgroundColor: '#eee' }}>
                 <div className='container content is-medium'>
                     <h4>Full Relocation Packages</h4>
                     <p>We offer comprehensive relocation packages tailored to your individual circumstances. These may include a combination of:</p>
@@ -98,7 +94,7 @@ export default function OurServices({ randomTestimonials }) {
                         <li>Admin tasks and more</li>
                     </ul>
                     <p>Each package is designed with your specific timeline, preferences, and priorities in mind.</p>
-                    <p><Link className='button is-primary' href='/relocation-packages'>Relocation packages</Link></p>
+                    <p><Link className='button is-dark' href='/relocation-packages'>Relocation packages</Link></p>
                 </div>
             </section>
 
