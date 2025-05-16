@@ -149,7 +149,7 @@ export default function OurServices({ randomTestimonials }) {
                                 <li><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span> Town Hall registrations</li>
                                 <li><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span> Registration with Social security and local doctor</li>
                                 <li><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span> Opening bank account and assisting with money transfer</li>
-                                <li><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span> Getting insurance quotes including private health insurance</li>
+                                <li><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span> <Link style={{ textDecoration: 'underline' }} href="/arranging-private-health-insurance-cover">Arranging private health insurance cover</Link></li>
                                 <li><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span> Connecting utilities, including telephone and internet</li>
                                 <li><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span> Accompanying to any authority or institution you may need to visit</li>
                                 <li><span className="icon"><FontAwesomeIcon icon={faCheckSquare} /></span> Registration of Civil Partnerships <em>Pareja de Hecho</em> with Junta de Andalusia</li>

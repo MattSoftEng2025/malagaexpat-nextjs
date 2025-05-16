@@ -57,8 +57,10 @@ function Modal({ modalOpen, setModalOpen }) {
                             Something went wrong while sending your message, please contact us via the details below or via our social media.
                         </div></div>}
                     {!sent && !failed && <div className="content">
-                        <p>Book your personal consultation now to answer any of your questions related to relocation to Spain, paperwork requirements and procedures as well as general advice.</p>
-                        <p>The price is <b>60</b> (plus VAT) which is fully deductible from any further agreed fees. The consultation can take place on the phone, WhatsApp, Skype or in person.</p>
+
+                        <p>Book your personal ONLINE consultation to answer any of your questions about relocation to Spain, immigration procedures, paperwork requirements and general advice.</p>
+                        <p>The price is <b>60€</b> (plus VAT) which is fully deductible from any future relocation packages contracted through Malaga Expat Consulting.</p>
+
                         <div className="field">
                             <label className="label">Your name</label>
                             <div className="control">
