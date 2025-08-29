@@ -11,7 +11,7 @@
         "@fortawesome/fontawesome-svg-core": "6.1.1",
         "@fortawesome/free-brands-svg-icons": "6.1.1",
         "@fortawesome/free-solid-svg-icons": "6.1.1",
-        "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
+        "@fortawesome/react-fontawesome": "^0.2.6",
         "bulma": "^0.9.3",
         "fathom-client": "^3.5.0",
         "marked": "^15.0.8",
