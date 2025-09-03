@@ -8,6 +8,7 @@
     "postinstall": "next build", 
         "lint": "next lint"
     },
+    "engines": { "node": "18.x" },    // <— good practice for EB Node platform
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "6.1.1",
         "@fortawesome/free-brands-svg-icons": "6.1.1",
