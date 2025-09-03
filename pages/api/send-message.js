@@ -1,9 +1,8 @@
-// pages/api/send-message.js
+// malagaexpat-nextjs/pages/api/send-message.js
 import sendgrid from "@sendgrid/mail";
 
-// Ensure the key exists (fail fast on cold start for clearer errors)
+// Configure SendGrid with API key from environment
 if (!process.env.SENDGRID_API_KEY) {
-  // eslint-disable-next-line no-console
   console.error("Missing SENDGRID_API_KEY env var");
 }
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY || "");
@@ -15,10 +14,11 @@ export default async function handler(req, res) {
       return res.status(405).json({ ok: false, error: "Method not allowed" });
     }
 
-    // Accept your existing payload shape (name, email, content)
-    const { name, email, content } = req.body || {};
+    // Accept both "content" and "message" (depending on your frontend form)
+    const { name, email } = req.body || {};
+    const content = req.body?.content ?? req.body?.message;
 
-    // Basic validation
+    // Validation
     if (
       typeof name !== "string" ||
       typeof email !== "string" ||
@@ -30,13 +30,13 @@ export default async function handler(req, res) {
       return res.status(400).json({ ok: false, error: "Missing fields" });
     }
 
-    // Simple spam/link block (keeps your original behavior)
+    // Block links like your original logic
     const lower = content.toLowerCase();
     if (lower.includes("http://") || lower.includes("https://")) {
       return res.status(400).json({ ok: false, error: "Links not allowed" });
     }
 
-    // Very light email sanity check
+    // Simple email validation
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!emailOk) {
       return res.status(422).json({ ok: false, error: "Invalid email" });
@@ -44,7 +44,6 @@ export default async function handler(req, res) {
 
     const FROM_EMAIL = process.env.FROM_EMAIL;
     const TO_EMAIL = process.env.TO_EMAIL;
-
     if (!FROM_EMAIL || !TO_EMAIL) {
       return res.status(500).json({
         ok: false,
@@ -55,32 +54,41 @@ export default async function handler(req, res) {
     // Send via SendGrid
     await sendgrid.send({
       to: TO_EMAIL,
-      from: FROM_EMAIL, // must be a verified sender/domain in SendGrid
+      from: FROM_EMAIL,         // must be a verified sender/domain in SendGrid
+      replyTo: email,           // allows you to hit "reply" in Gmail/Outlook
       subject: `New enquiry from ${name}`,
       text: `From: ${name} <${email}>\n\n${content}`,
       html: `
-        <p><strong>From:</strong> ${escapeHtml(name)} (${escapeHtml(email)})</p>
-        <p>${escapeHtml(content).replace(/\n/g, "<br>")}</p>
+        <p><strong>From:</strong> ${esc(name)} (${esc(email)})</p>
+        <p>${esc(content).replace(/\n/g, "<br>")}</p>
       `,
-      headers: {
-        "X-MalagaExpat-Source": "contact-form",
-      },
+      headers: { "X-MalagaExpat-Source": "contact-form" },
     });
 
     return res.status(200).json({ ok: true, message: "Message sent" });
   } catch (err) {
-    // Log full error server-side; return safe message client-side
-    // eslint-disable-next-line no-console
-    console.error("SendGrid error:", err?.response?.body || err?.message || err);
-    const sgDetail = err?.response?.body?.errors?.[0]?.message;
-    return res
-      .status(500)
-      .json({ ok: false, error: sgDetail || err.message || "Send failed" });
+    // Detailed error in debug mode (?debug=1)
+    const sg = err?.response?.body || null;
+    const debug = String(req.query?.debug || "") === "1";
+    console.error("SendGrid error:", sg || err);
+
+    return res.status(500).json(
+      debug
+        ? {
+            ok: false,
+            error: err?.message || "Send failed",
+            sendgrid: sg,
+            hasFROM: !!process.env.FROM_EMAIL,
+            hasTO: !!process.env.TO_EMAIL,
+            hasKEY: !!process.env.SENDGRID_API_KEY,
+            receivedBody: req.body,
+          }
+        : { ok: false, error: "Send failed" }
+    );
   }
 }
 
-// Small HTML escaper to avoid HTML injection in the email body
-function escapeHtml(s) {
+function esc(s) {
   return String(s)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
