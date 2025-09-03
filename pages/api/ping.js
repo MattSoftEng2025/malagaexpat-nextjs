@@ -1,1 +1,5 @@
-export default (req,res)=>res.status(200).json({ok:true,method:req.method});
+
+export default (req, res) => {
+  res.status(200).json({ ok: true, method: req.method });
+};
+
