@@ -15,25 +15,39 @@ export default function Contact() {
     const [sending, setSending] = useState(false)
     const [sent, setSent] = useState(false)
     const [failed, setFailed] = useState(false)
+    const [debugInfo, setDebugInfo] = useState(null) // new state to show debug info
 
     const submit = async e => {
         e.preventDefault();
         setSending(true);
+        setFailed(false);
+        setDebugInfo(null);
 
-        const res = await fetch('/api/send-message', {
-            method: 'POST',
-            body: JSON.stringify({ name, email, company, phone, content }),
-            headers: {
-                'Content-Type': 'application/json',
+        try {
+            // Add ?debug=1 to the API route
+            const res = await fetch('/api/send-message?debug=1', {
+                method: 'POST',
+                body: JSON.stringify({ name, email, company, phone, content }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            const result = await res.json();
+            setSending(false);
+
+            if (result.ok) {
+                setSent(true);
+            } else {
+                setFailed(true);
+                setDebugInfo(result); // save debug info to state
+                console.log("SendGrid debug info:", result.sendgrid);
             }
-        })
-
-        setSending(false);
-
-        if (res.ok) {
-            setSent(true)
-        } else {
-            setFailed(true)
+        } catch (err) {
+            setSending(false);
+            setFailed(true);
+            console.error(err);
+            setDebugInfo({ error: err.message });
         }
     }
 
@@ -50,7 +64,9 @@ export default function Contact() {
                             <div className="columns is-centered">
                                 <div className="column is-8">
                                     <h1 className="title is-1 has-text-centered">Contact</h1>
-                                    <p className="subtitle is-4">If you require assistance with any matters listed in <Link href="/our-services">our services</Link> and more, or any help and advice about living or moving to Malaga and the Costa del Sol, please contact us by filling the below form and we will get back to you as soon as we can.</p>
+                                    <p className="subtitle is-4">
+                                        If you require assistance with any matters listed in <Link href="/our-services">our services</Link> and more, or any help and advice about living or moving to Malaga and the Costa del Sol, please contact us by filling the below form and we will get back to you as soon as we can.
+                                    </p>
                                 </div>
                             </div>
 
@@ -59,11 +75,14 @@ export default function Contact() {
                                     {sent && <div className='message is-success'>
                                         <div className="message-body has-text-centered">
                                             Your message has been sent, we will be in touch as soon as possible.
-                                        </div></div>}
+                                        </div>
+                                    </div>}
                                     {failed && <div className='message is-danger'>
                                         <div className="message-body has-text-centered">
                                             Something went wrong while sending your message, please contact us via the details below or via our social media.
-                                        </div></div>}
+                                        </div>
+                                    </div>}
+
                                     {!sent && !failed && <form onSubmit={e => submit(e)}>
                                         <div className="columns">
                                             <div className="column">
@@ -97,9 +116,15 @@ export default function Contact() {
                                             </div>
                                         </div>
                                         <div className="is-flex">
-                                            <button className={`button is-dark mx-auto is-large ${(sending ? 'is-loading' : null)}`} type="submit">Submit</button>
+                                            <button className={`button is-dark mx-auto is-large ${(sending ? 'is-loading' : '')}`} type="submit">Submit</button>
                                         </div>
                                     </form>}
+
+                                    {/* Debug info display */}
+                                    {debugInfo && <pre className="mt-4 p-3 has-background-light" style={{ overflowX: 'auto' }}>
+                                        {JSON.stringify(debugInfo, null, 2)}
+                                    </pre>}
+
                                 </div>
                             </div>
                         </div>
