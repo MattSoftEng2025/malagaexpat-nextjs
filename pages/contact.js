@@ -15,16 +15,13 @@ export default function Contact() {
     const [sending, setSending] = useState(false)
     const [sent, setSent] = useState(false)
     const [failed, setFailed] = useState(false)
-    const [debugInfo, setDebugInfo] = useState(null) // new state to show debug info
 
     const submit = async e => {
         e.preventDefault();
         setSending(true);
         setFailed(false);
-        setDebugInfo(null);
 
         try {
-            // Add ?debug=1 to the API route
             const res = await fetch('/api/send-message?debug=1', {
                 method: 'POST',
                 body: JSON.stringify({ name, email, company, phone, content }),
@@ -40,14 +37,14 @@ export default function Contact() {
                 setSent(true);
             } else {
                 setFailed(true);
-                setDebugInfo(result); // save debug info to state
                 console.log("SendGrid debug info:", result.sendgrid);
+                alert("Debug info:\n" + JSON.stringify(result, null, 2));
             }
         } catch (err) {
             setSending(false);
             setFailed(true);
             console.error(err);
-            setDebugInfo({ error: err.message });
+            alert("Error sending message: " + err.message);
         }
     }
 
@@ -83,7 +80,7 @@ export default function Contact() {
                                         </div>
                                     </div>}
 
-                                    {!sent && !failed && <form onSubmit={e => submit(e)}>
+                                    {!sent && !failed && <form onSubmit={submit}>
                                         <div className="columns">
                                             <div className="column">
                                                 <div className="field">
@@ -119,11 +116,6 @@ export default function Contact() {
                                             <button className={`button is-dark mx-auto is-large ${(sending ? 'is-loading' : '')}`} type="submit">Submit</button>
                                         </div>
                                     </form>}
-
-                                    {/* Debug info display */}
-                                    {debugInfo && <pre className="mt-4 p-3 has-background-light" style={{ overflowX: 'auto' }}>
-                                        {JSON.stringify(debugInfo, null, 2)}
-                                    </pre>}
 
                                 </div>
                             </div>
