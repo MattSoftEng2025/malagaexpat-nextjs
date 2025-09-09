@@ -5,9 +5,9 @@ COPY package*.json ./
 RUN npm ci
 
 # --- Stage 2: build Next.js app ---
-FROM node:20-alpine AS builder
+FROM node:20-alpine AS build
 WORKDIR /app
-# SWC/Next need this on Alpine
+# Next/SWC native binaries need this on Alpine
 RUN apk add --no-cache libc6-compat
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -15,19 +15,23 @@ ENV NODE_ENV=production
 RUN npm run build
 
 # --- Stage 3: run Next.js server ---
-FROM node:20-alpine AS runner
+FROM node:20-alpine AS run
 WORKDIR /app
 ENV NODE_ENV=production
-# HTTPS to SendGrid + SWC runtime
+
+# Ensure outbound HTTPS (SendGrid) works + SWC compatibility
 RUN apk add --no-cache ca-certificates libc6-compat
 
 # Copy only what's needed at runtime
-COPY --from=builder /app/package*.json ./
+COPY --from=build /app/package*.json ./
+# Install only production deps for a lean image
 RUN npm ci --omit=dev
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/next.config.js ./next.config.js
 
-# EB maps host :80 -> container :80 by default for single-container Docker
+COPY --from=build /app/.next ./.next
+COPY --from=build /app/public ./public
+COPY --from=build /app/next.config.js ./next.config.js
+
+# Elastic Beanstalk single-container maps host:80 -> container:80
 EXPOSE 80
+# Start Next on port 80
 CMD ["sh","-c","npx next start -p 80"]
