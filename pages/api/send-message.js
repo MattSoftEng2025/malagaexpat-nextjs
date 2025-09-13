@@ -1,11 +1,12 @@
-// malagaexpat-nextjs/pages/api/send-message.js
-import sendgrid from "@sendgrid/mail";
+// pages/api/send-message.js  — SES via SMTP (Nodemailer)
+import nodemailer from "nodemailer";
 
-// Configure SendGrid with API key from environment
-if (!process.env.SENDGRID_API_KEY) {
-  console.error("Missing SENDGRID_API_KEY env var");
-}
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY || "");
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: 587,            // STARTTLS
+  secure: false,
+  auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+});
 
 export default async function handler(req, res) {
   try {
@@ -14,11 +15,9 @@ export default async function handler(req, res) {
       return res.status(405).json({ ok: false, error: "Method not allowed" });
     }
 
-    // Accept both "content" and "message" (depending on your frontend form)
-    const { name, email } = req.body || {};
-    const content = req.body?.content ?? req.body?.message;
+    const { name, email, company, phone, content } = req.body || {};
 
-    // Validation
+    // Basic validation
     if (
       typeof name !== "string" ||
       typeof email !== "string" ||
@@ -30,61 +29,49 @@ export default async function handler(req, res) {
       return res.status(400).json({ ok: false, error: "Missing fields" });
     }
 
-    // Block links like your original logic
-    const lower = content.toLowerCase();
-    if (lower.includes("http://") || lower.includes("https://")) {
-      return res.status(400).json({ ok: false, error: "Links not allowed" });
+    // Very light bot guard: block messages containing raw URLs
+    if (/\bhttps?:\/\/\S+/i.test(content)) {
+      return res.status(400).json({ ok: false, error: "Links are not allowed in the message." });
     }
 
-    // Simple email validation
-    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!emailOk) {
-      return res.status(422).json({ ok: false, error: "Invalid email" });
+    const to = process.env.TO_EMAIL || process.env.FROM_EMAIL;
+    if (!to || !process.env.FROM_EMAIL) {
+      return res.status(500).json({ ok: false, error: "Email env vars not set" });
     }
 
-    const FROM_EMAIL = process.env.FROM_EMAIL;
-    const TO_EMAIL = process.env.TO_EMAIL;
-    if (!FROM_EMAIL || !TO_EMAIL) {
-      return res.status(500).json({
-        ok: false,
-        error: "Server misconfiguration (FROM_EMAIL / TO_EMAIL missing)",
-      });
-    }
+    const subject = `New website enquiry from ${name}`;
+    const html = `
+      <h2>New enquiry</h2>
+      <p><strong>Name:</strong> ${esc(name)}</p>
+      <p><strong>Email:</strong> ${esc(email)}</p>
+      ${company ? `<p><strong>Company:</strong> ${esc(company)}</p>` : ""}
+      ${phone ? `<p><strong>Phone:</strong> ${esc(phone)}</p>` : ""}
+      <hr/>
+      <p>${esc(content).replace(/\n/g, "<br/>")}</p>
+    `;
+    const text =
+      `New enquiry\n` +
+      `Name: ${name}\nEmail: ${email}\n` +
+      (company ? `Company: ${company}\n` : "") +
+      (phone ? `Phone: ${phone}\n` : "") +
+      `\n---\n${content}`;
 
-    // Send via SendGrid
-    await sendgrid.send({
-      to: TO_EMAIL,
-      from: FROM_EMAIL,         // must be a verified sender/domain in SendGrid
-      replyTo: email,           // allows you to hit "reply" in Gmail/Outlook
-      subject: `New enquiry from ${name}`,
-      text: `From: ${name} <${email}>\n\n${content}`,
-      html: `
-        <p><strong>From:</strong> ${esc(name)} (${esc(email)})</p>
-        <p>${esc(content).replace(/\n/g, "<br>")}</p>
-      `,
-      headers: { "X-MalagaExpat-Source": "contact-form" },
+    const info = await transporter.sendMail({
+      from: process.env.FROM_EMAIL,
+      to,
+      subject,
+      html,
+      text,
+      replyTo: email, // so you can reply directly to the sender
+      headers: {
+        "X-Entity-Ref-ID": "malagaexpat",
+      },
     });
 
-    return res.status(200).json({ ok: true, message: "Message sent" });
-  } catch (err) {
-    // Detailed error in debug mode (?debug=1)
-    const sg = err?.response?.body || null;
-    const debug = String(req.query?.debug || "") === "1";
-    console.error("SendGrid error:", sg || err);
-
-    return res.status(500).json(
-      debug
-        ? {
-            ok: false,
-            error: err?.message || "Send failed",
-            sendgrid: sg,
-            hasFROM: !!process.env.FROM_EMAIL,
-            hasTO: !!process.env.TO_EMAIL,
-            hasKEY: !!process.env.SENDGRID_API_KEY,
-            receivedBody: req.body,
-          }
-        : { ok: false, error: "Send failed" }
-    );
+    return res.status(200).json({ ok: true, messageId: info.messageId });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ ok: false, error: "Send failed" });
   }
 }
 
