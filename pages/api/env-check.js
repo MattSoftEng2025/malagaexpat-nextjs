@@ -1,5 +1,9 @@
-export default (req, res) => res.status(200).json({
-  FROM_EMAIL: !!process.env.FROM_EMAIL,
-  TO_EMAIL: !!process.env.TO_EMAIL,
-  SENDGRID_API_KEY: !!process.env.SENDGRID_API_KEY
-});
+// pages/api/env-check.js
+export default (req, res) =>
+  res.status(200).json({
+    FROM_EMAIL: !!process.env.FROM_EMAIL,
+    TO_EMAIL: !!process.env.TO_EMAIL,
+    SMTP_HOST: !!process.env.SMTP_HOST,
+    SMTP_USER: !!process.env.SMTP_USER,
+    SMTP_PASS: !!process.env.SMTP_PASS,
+  });
