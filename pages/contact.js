@@ -23,7 +23,7 @@ export default function Contact() {
 
         try {
             const res = await fetch(
-                'http://malagaexpat-frontend-env.eba-fjt7n9ad.eu-west-1.elasticbeanstalk.com//send_mail.php',
+                'https://malagaexpat-frontend-env.eba-fjt7n9ad.eu-west-1.elasticbeanstalk.com//send_mail.php',
                 {
                     method: 'POST',
                     body: JSON.stringify({ name, email, company, phone, content }),
