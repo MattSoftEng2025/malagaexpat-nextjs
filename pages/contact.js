@@ -22,13 +22,16 @@ export default function Contact() {
         setFailed(false);
 
         try {
-            const res = await fetch('/api/send-message?debug=1', {
-                method: 'POST',
-                body: JSON.stringify({ name, email, company, phone, content }),
-                headers: {
-                    'Content-Type': 'application/json',
+            const res = await fetch(
+                'https://MalagaExpat-env.eba-f28qdjq6.eu-west-1.elasticbeanstalk.com/send_mail.php',
+                {
+                    method: 'POST',
+                    body: JSON.stringify({ name, email, company, phone, content }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
                 }
-            });
+            );
 
             const result = await res.json();
             setSending(false);
@@ -37,8 +40,7 @@ export default function Contact() {
                 setSent(true);
             } else {
                 setFailed(true);
-                console.log("SendGrid debug info:", result.sendgrid);
-                alert("Debug info:\n" + JSON.stringify(result, null, 2));
+                alert("Error:\n" + JSON.stringify(result, null, 2));
             }
         } catch (err) {
             setSending(false);
