@@ -1,68 +1,130 @@
-<?php
-// send_mail.php
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: https://malagaexpat.com');
-header('Access-Control-Allow-Headers: Content-Type');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
+import { faCircle, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import Head from 'next/head'
+import Link from 'next/link'
+import { contactTitle, contactDescription } from '../utils/site'
+import { useState } from 'react'
 
-require __DIR__ . '/vendor/autoload.php';
+export default function Contact() {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [company, setCompany] = useState('')
+    const [content, setContent] = useState('')
+    const [sending, setSending] = useState(false)
+    const [sent, setSent] = useState(false)
+    const [failed, setFailed] = useState(false)
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
+    const submit = async e => {
+        e.preventDefault();
+        setSending(true);
+        setFailed(false);
 
-function esc($s){ return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
+        try {
+            const res = await fetch(
+                'https://MalagaExpat-env.eba-f28qdjq6.eu-west-1.elasticbeanstalk.com/send_mail.php',
+                {
+                    method: 'POST',
+                    body: JSON.stringify({ name, email, company, phone, content }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+            );
 
-// Read JSON
-$raw = file_get_contents('php://input');
-$data = json_decode($raw, true) ?: [];
-$name    = trim($data['name']    ?? '');
-$email   = trim($data['email']   ?? '');
-$company = trim($data['company'] ?? '');
-$phone   = trim($data['phone']   ?? '');
-$content = trim($data['content'] ?? '');
+            const result = await res.json();
+            setSending(false);
 
-if (!$name || !$email || !$content) {
-  http_response_code(400);
-  echo json_encode(['ok'=>false,'error'=>'Missing fields']);
-  exit;
-}
+            if (result.ok) {
+                setSent(true);
+            } else {
+                setFailed(true);
+                alert("Error:\n" + JSON.stringify(result, null, 2));
+            }
+        } catch (err) {
+            setSending(false);
+            setFailed(true);
+            console.error(err);
+            alert("Error sending message: " + err.message);
+        }
+    }
 
-try {
-  $mail = new PHPMailer(true);
-  $mail->isSMTP();
-  $mail->Host       = getenv('SMTP_HOST');
-  $mail->SMTPAuth   = true;
-  $mail->Username   = getenv('SMTP_USER');
-  $mail->Password   = getenv('SMTP_PASS');
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-  $mail->Port       = 587;
+    return (
+        <>
+            <Head>
+                <title>{contactTitle}</title>
+                <meta name="description" content={contactDescription} />
+            </Head>
+            <main>
+                <div className="hero is-primary">
+                    <div className="hero-body">
+                        <div className="container">
+                            <div className="columns is-centered">
+                                <div className="column is-8">
+                                    <h1 className="title is-1 has-text-centered">Contact</h1>
+                                    <p className="subtitle is-4">
+                                        If you require assistance with any matters listed in <Link href="/our-services">our services</Link> and more, or any help and advice about living or moving to Malaga and the Costa del Sol, please contact us by filling the below form and we will get back to you as soon as we can.
+                                    </p>
+                                </div>
+                            </div>
 
-  $from = getenv('FROM_EMAIL') ?: 'enquiries@malagaexpat.com';
-  $to   = getenv('TO_EMAIL')   ?: 'yourgmail@gmail.com';
+                            <div className="columns is-centered">
+                                <div className="column is-8">
+                                    {sent && <div className='message is-success'>
+                                        <div className="message-body has-text-centered">
+                                            Your message has been sent, we will be in touch as soon as possible.
+                                        </div>
+                                    </div>}
+                                    {failed && <div className='message is-danger'>
+                                        <div className="message-body has-text-centered">
+                                            Something went wrong while sending your message, please contact us via the details below or via our social media.
+                                        </div>
+                                    </div>}
 
-  $mail->setFrom($from, 'Malaga Expat');
-  $mail->addAddress($to);
-  $mail->addReplyTo($email);
+                                    {!sent && !failed && <form onSubmit={submit}>
+                                        <div className="columns">
+                                            <div className="column">
+                                                <div className="field">
+                                                    <div className="control">
+                                                        <input type="text" className="input is-large" placeholder="Name" required value={name} onChange={e => setName(e.target.value)} />
+                                                    </div>
+                                                </div>
+                                                <div className="field">
+                                                    <div className="control">
+                                                        <input type="email" className="input is-large" placeholder="Email" required value={email} onChange={e => setEmail(e.target.value)} />
+                                                    </div>
+                                                </div>
+                                                <div className="field">
+                                                    <div className="control">
+                                                        <input type="text" className="input is-large" placeholder="Phone" value={phone} onChange={e => setPhone(e.target.value)} />
+                                                    </div>
+                                                </div>
+                                                <div className="field">
+                                                    <div className="control">
+                                                        <input type="text" className="input is-large" placeholder="Company" value={company} onChange={e => setCompany(e.target.value)} />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="column">
+                                                <div className="field" style={{ height: '100%' }}>
+                                                    <div className="control" style={{ height: '100%' }}>
+                                                        <textarea className="textarea is-large" style={{ height: '100%' }} placeholder="Message" required value={content} onChange={e => setContent(e.target.value)}></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="is-flex">
+                                            <button className={`button is-dark mx-auto is-large ${(sending ? 'is-loading' : '')}`} type="submit">Submit</button>
+                                        </div>
+                                    </form>}
 
-  $mail->Subject = 'New website enquiry from ' . $name;
-  $html  = "<h2>New enquiry</h2>";
-  $html .= "<p><strong>Name:</strong> ".esc($name)."</p>";
-  $html .= "<p><strong>Email:</strong> ".esc($email)."</p>";
-  if ($company) $html .= "<p><strong>Company:</strong> ".esc($company)."</p>";
-  if ($phone)   $html .= "<p><strong>Phone:</strong> ".esc($phone)."</p>";
-  $html .= "<hr><p>".nl2br(esc($content))."</p>";
-
-  $mail->isHTML(true);
-  $mail->Body    = $html;
-  $mail->AltBody = "New enquiry\nName: $name\nEmail: $email\n"
-                 . ($company ? "Company: $company\n" : "")
-                 . ($phone ? "Phone: $phone\n" : "")
-                 . "\n---\n$content";
-
-  $mail->send();
-  echo json_encode(['ok'=>true]);
-} catch (\Throwable $e) {
-  http_response_code(500);
-  echo json_encode(['ok'=>false,'error'=>$e->getMessage()]);
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </>
+    )
 }
