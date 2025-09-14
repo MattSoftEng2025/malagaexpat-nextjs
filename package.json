@@ -29,4 +29,8 @@
     "eslint": "8.14.0",
     "eslint-config-next": "^13.1.5"
   }
+
+  "require": {
+    "phpmailer/phpmailer": "^6.9"
+  }
 }
