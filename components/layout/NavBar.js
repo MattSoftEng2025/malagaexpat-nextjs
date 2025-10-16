@@ -5,6 +5,8 @@ import { ModalContext } from '../contexts/ModalContext'
 
 // ✅ Set this in .env.local: NEXT_PUBLIC_CONSULTATION_ENDPOINT=https://php.your-host.com/consultation.php
 const CONSULTATION_ENDPOINT = process.env.NEXT_PUBLIC_CONSULTATION_ENDPOINT
+console.log('CONSULTATION_ENDPOINT =', CONSULTATION_ENDPOINT);
+
 
 function Modal({ modalOpen, setModalOpen }) {
   const [name, setName] = useState('')
