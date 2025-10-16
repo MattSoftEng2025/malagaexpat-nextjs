@@ -16,11 +16,18 @@ function Modal({ modalOpen, setModalOpen }) {
   const [sent, setSent] = useState(false)
   const [failed, setFailed] = useState(false)
 
+  const resetForm = () => {
+    setName('')
+    setEmail('')
+    setPhone('')
+    setTime('Any time')
+    setTopic('')
+  }
+
   const submit = async (e) => {
     if (sent) return
     e.preventDefault()
 
-    // Hard-stop if the env isn’t set (helps during dev)
     if (!CONSULTATION_ENDPOINT) {
       console.error('Missing NEXT_PUBLIC_CONSULTATION_ENDPOINT')
       setFailed(true)
@@ -51,6 +58,9 @@ function Modal({ modalOpen, setModalOpen }) {
 
       if (res.ok && data?.ok) {
         setSent(true)
+        resetForm()
+        // Optional: auto-close the modal after success
+        // setTimeout(() => setModalOpen(false), 1500)
       } else {
         setFailed(true)
       }
@@ -66,7 +76,8 @@ function Modal({ modalOpen, setModalOpen }) {
       <div className="modal-card">
         <header className="modal-card-head has-background-primary">
           <p className="modal-card-title is-size-5">Book Your Personal Consultation</p>
-          <button className="delete" aria-label="close" onClick={() => setModalOpen(false)}></button>
+          {/* prevent this button from submitting the form */}
+          <button type="button" className="delete" aria-label="close" onClick={() => setModalOpen(false)}></button>
         </header>
         <div className="modal-card-body">
           {sent && (
@@ -107,6 +118,7 @@ function Modal({ modalOpen, setModalOpen }) {
               <div className="field">
                 <label className="label">Consultation topic</label>
                 <div className="control">
+                  {/* keeps name="message" for backward compatibility if you ever read it directly; state maps to service */}
                   <input name="message" className="input" required value={topic} onChange={e => setTopic(e.target.value)} />
                 </div>
               </div>
@@ -145,7 +157,11 @@ function Modal({ modalOpen, setModalOpen }) {
 
         {!sent && (
           <footer className="modal-card-foot">
-            <button className={`button is-dark is-fullwidth ${sending ? 'is-loading' : ''}`} type="submit">
+            <button
+              className={`button is-dark is-fullwidth ${sending ? 'is-loading' : ''}`}
+              type="submit"
+              disabled={sending}
+            >
               Send enquiry ⟶
             </button>
           </footer>
