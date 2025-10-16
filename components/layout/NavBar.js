@@ -8,11 +8,15 @@
  */
 
 // ================== CONFIG ==================
-$allowed_origins = [
-  'https://malagaexpat.com',
-  'https://www.malagaexpat.com',
-  'http://localhost:3000', // dev
-];
+// Optional env override: ALLOWED_ORIGINS="https://malagaexpat.com,https://www.malagaexpat.com,http://localhost:3000"
+$originsEnv = getenv('ALLOWED_ORIGINS');
+$allowed_origins = $originsEnv
+  ? array_map('trim', explode(',', $originsEnv))
+  : [
+      'https://malagaexpat.com',
+      'https://www.malagaexpat.com',
+      'http://localhost:3000', // dev
+    ];
 
 $block_links = true; // simple anti-spam: reject messages containing raw URLs
 
@@ -28,7 +32,7 @@ $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowed_origins, true)) {
   header("Access-Control-Allow-Origin: $origin");
 } else {
-  // Fallback to your primary domain (optional)
+  // Fallback to primary if origin not recognized (optional)
   header("Access-Control-Allow-Origin: https://malagaexpat.com");
 }
 header('Vary: Origin');
@@ -47,6 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   echo json_encode(['ok' => false, 'error' => 'Method not allowed']);
   exit;
 }
+
+// Optional: enforce JSON content-type (won’t block some proxies if omitted)
+// if (stripos($_SERVER['CONTENT_TYPE'] ?? '', 'application/json') === false) {
+//   http_response_code(415);
+//   echo json_encode(['ok' => false, 'error' => 'Unsupported Media Type. Expect application/json']);
+//   exit;
+// }
 
 // ============== INPUT (JSON) =================
 $raw = file_get_contents('php://input');
@@ -129,8 +140,8 @@ if (!$SMTP_HOST || !$SMTP_USER || !$SMTP_PASS || !$FROM_EMAIL || !$TO_EMAIL) {
 // ============== AUTOLOAD PHPMailer ===========
 $autoloadResolved = false;
 $paths = [
-  __DIR__ . '/vendor/autoload.php',
-  __DIR__ . '/../vendor/autoload.php',
+  __DIR__ . '/vendor/autoload.php',   // if file is in web root
+  __DIR__ . '/../vendor/autoload.php' // if file is in /api under web root
 ];
 foreach ($paths as $p) {
   if (is_file($p)) { require $p; $autoloadResolved = true; break; }
@@ -161,6 +172,7 @@ try {
 
   $mail = new PHPMailer(true);
   $mail->CharSet = 'UTF-8';
+  // $mail->SMTPDebug = 0; // set to 2 for verbose debug (temporary)
 
   $mail->isSMTP();
   $mail->Host       = $SMTP_HOST;
@@ -175,6 +187,7 @@ try {
   else           $mail->setFrom($fromAddr);
   $mail->addAddress($TO_EMAIL);
   $mail->addReplyTo($email, $name);
+  $mail->addCustomHeader('X-Entity-Ref-ID', 'malagaexpat-consultation');
 
   // Content
   $mail->Subject = $subject;
@@ -185,9 +198,11 @@ try {
   $mail->send();
 
   echo json_encode(['ok' => true]);
+  exit;
 } catch (Exception $e) {
   // Log real reason server-side, return generic error client-side
   error_log('PHPMailer error (consultation.php): ' . $e->getMessage());
   http_response_code(500);
   echo json_encode(['ok' => false, 'error' => 'Failed to send email']);
+  exit;
 }
